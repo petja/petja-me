@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Petja Touru</title>
+		<meta charset="UTF-8" />
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet" />
+		<meta content="width=device-width,initial-scale=1" name="viewport" />
+		<style media="screen">
+			html, body{
+				margin: 0;
+				padding: 0;
+				height: 100%;
+			}
+			/*body{
+				background: #2f0fc7 url("retrosky.svg");
+				background-size: auto 100%;
+				background-repeat: repeat-x;
+			}*/
+			body{
+				background: #000;
+				overflow-x: hidden;
+				font-size: 1.1em;
+				font-family: 'Roboto Mono', monospace;
+				cursor: default;
+			}
+			#face{
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: url("https://gravatar.com/avatar/3fe5cfc5d9eaeea3d15c8b5605c93514?s=512");
+				background-size: cover;
+				background-position: center;
+				opacity: 0;
+				z-index: 8;
+				pointer-events: none;
+				animation: face;
+				animation-duration: 12s;
+				animation-iteration-count: infinite;
+			}
+			#foo{
+				background-color: #0000ff;
+				background-image: url("stars.jpg");
+				background-size: cover;
+				height: 100%;
+				display: flex;
+				align-items: center;
+				flex-wrap: wrap;
+				overflow: hidden;
+			}
+			#logo{
+				background: url("petjalogo.svg");
+				background-size: contain;
+				background-position: center center;
+				background-repeat: no-repeat;
+				width: 600px;
+				max-width: calc(100% - 64px);
+				height: 128px;
+				animation: logo;
+				animation-duration: 2s;
+				margin: 0 auto;
+			}
+			#scanlines,#noise,#screen{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				pointer-events: none;
+			}
+			#screen{
+				background: radial-gradient(ellipse, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%);
+				/*linear-gradient(90deg, rgba(0,0,255,0.5) 0%, rgba(128,0,255,0) 50%, rgba(255,0,255,0.5) 100%);*/
+				z-index: 15;
+			}
+			#noise{
+				/*z-index: 10;
+				opacity: 0.1;
+				background: url("noise.png");
+				animation: noise;
+				animation-duration: 0.1s;
+				animation-iteration-count: infinite;
+				animation-timing-function: linear;*/
+			}
+			#scanlines{
+				z-index: 11;
+				background-image: url("scanline.svg");
+				/*background: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.3333) 50%, transparent 100%);*/
+				/* Native gradient doesn't work in Firefox for some reason. Using SVG. */
+				background-size: 0.3em;
+				animation: scanlines;
+				animation-duration: 2s;
+				animation-iteration-count: infinite;
+				animation-timing-function: linear;
+			}
+			#slogan{
+				background: #ff0000;
+				color: #fff;
+				text-transform: uppercase;
+				font-weight: bold;
+				margin: 0.5em auto;
+				padding: 0.5em;
+				text-align: center;
+				animation-delay: 2s;
+			}
+			.delayed{
+				animation: logo;
+				animation-duration: 0.5s;
+				transform: scale(0);
+				animation-fill-mode: forwards;
+			}
+			#social{
+				padding: 0;
+				color: #FFF;
+				display: flex;
+				animation: fade_full;
+				animation-duration: 2s;
+				animation-delay: 2s;
+				animation-fill-mode: forwards;
+				text-transform: uppercase;
+				font-weight: bold;
+				max-width: 600px;
+				margin: 0 auto;
+				opacity: 0;
+			}
+			#social a {
+				display: block;
+				text-decoration: none;
+				flex: 1;
+				padding: 0.5em;
+				color: inherit;
+				margin-top: 2em;
+				transition: 0.25s;
+			}
+			#social a:hover{
+				transform: scale(1.2);
+			}
+			#legal {
+				font-size: 0.8em;
+				opacity: 0;
+				text-align: center;
+				transition: 0.5s;
+				color: #808080;
+				animation: fade_half;
+				animation-duration: 2s;
+				animation-delay: 2s;
+				animation-fill-mode: forwards;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				margin: 2em;
+				z-index: 20;
+			}
+			#legal:hover{
+				opacity: 1;
+				color: #FFF;
+			}
+			.blink{
+				background-image: url("blink.svg");
+				height: 16px;
+				width: 16px;
+				background-size: cover;
+				position: fixed;
+				top: 128px;
+				left: 128px;
+				z-index: 9;
+				pointer-events: none;
+			}
+			.blink.animated{
+				animation: blink;
+				animation-duration: 1s;
+				animation-direction: alternate;
+				animation-iteration-count: infinite;
+				animation-timing-function: linear;
+			}
+			@keyframes fade_half {
+				0% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 0.5;
+				}
+			}
+			@keyframes fade_full {
+				0% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+			@keyframes logo {
+				0% {
+					transform: scale(0);
+				}
+				90% {
+					transform: scale(1.1);
+				}
+				100% {
+					transform: scale(1);
+				}
+			}
+			@keyframes blink {
+				0% {
+					transform: scale(0);
+				}
+				100% {
+					transform: scale(1);
+				}
+			}
+			@keyframes scanlines {
+				0% {
+					background-position: 0 0;
+				}
+				100% {
+					background-position: 0 1.2em;
+				}
+			}
+			@keyframes face {
+				0% {
+					opacity: 0;
+				}
+				50% {
+					opacity: 0;
+				}
+				75% {
+					opacity: 0.075;
+				}
+				100% {
+					opacity: 0;
+				}
+			}
+		</style>
+		<script>
+			var blinks = [];
+			var blink_id = -1;
+			var blink_count = 25;
+			var blink_round = 2000;
+
+			document.addEventListener("DOMContentLoaded", function() {
+				//init_figure();
+				//go_to_page(0);
+
+				for(i=0; i<blink_count; i++){
+					var blink = document.createElement("div");
+					blink.className = "blink";
+					blinks.push(blink);
+					document.body.appendChild(blink);
+				}
+
+				setInterval(function(){
+					blink_id = (blink_id + 1) % blink_count;
+					var blink = blinks[blink_id];
+
+					blink.className = "blink";
+					blink.style.top = Math.floor(Math.random() * document.documentElement.clientHeight) + "px";
+					blink.style.left = Math.floor(Math.random() * document.documentElement.clientWidth) + "px";
+					blink.className = "blink animated";
+				}, blink_round / blink_count);
+			});
+
+			/*page = -1;
+
+			setInterval(function(){
+				page = (page + 1) % 6;
+			}, 2000);
+
+			setInterval(function(){
+				go_to_page(page);
+			}, 50);*/
+
+			function go_to_page(n){
+				switch(n){
+					case 0:
+						document.querySelector('#slogan').innerText = "Full Stack Software Developer";
+						break;
+					case 1:
+						document.querySelector('#slogan').innerText = "BBA Student @ HAMK UAS";
+						break;
+					case 2:
+						document.querySelector('#slogan').innerText = "Location: Hämeenlinna, Finland";
+						break;
+					case 3:
+						document.querySelector('#slogan').innerText = "Age: " + age().toFixed(10) + " yrs";
+						break;
+					case 4:
+						document.querySelector('#slogan').innerText = 'People call me "tech geek"';
+						break;
+					case 5:
+						document.querySelector('#slogan').innerText = "Design matters";
+						break;
+				};
+			}
+
+			function age(){
+				return (Date.now() - 854011020000) / 86400000 / 365.2425;
+			}
+
+			function init_figure() {
+				c = document.getElementById("figurehead");
+				ctx = c.getContext("2d");
+
+				document.addEventListener("mousemove", function(e) {
+					draw_figure(e.pageX, e.pageY);
+				});
+
+				figure_img = new Image;
+				figure_img.src = 'pixelart.png';
+
+				figure_img.onload = function(){
+						draw_figure(0, 0);
+				};
+			}
+
+			function draw_figure(mouseX, mouseY){
+				// Clear canvas
+				ctx.clearRect(0, 0, c.width, c.height);
+
+				// Calculate rotation
+				var canvas_position = c.getBoundingClientRect();
+				var angle = get_angle_between_coordinates(mouseX, canvas_position.left + c.width / 2, mouseY, canvas_position.top + c.height / 2);
+
+				// Draw!
+				ctx.save();
+				ctx.translate(c.width / 2, c.height / 2);
+				if((angle + Math.PI) > 4.7124 || (angle + Math.PI) < 1.5708){
+					ctx.scale(1, -1);
+					ctx.rotate(-angle);
+				}else{
+					ctx.rotate(angle);
+				}
+				ctx.drawImage(figure_img, -48, -64, 96, 128);
+				ctx.restore();
+			}
+
+			function get_angle_between_coordinates(x1, x2, y1, y2) {
+				return Math.atan2(y2 - y1, x2 - x1);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="foo">
+			<div id="screen"></div>
+			<div id="scanlines"></div>
+			<div id="legal">Website &copy; 2016 Petja Touru. Music: <em>Gray Is The Sky</em> by <em>Three Chain Links</em>. Music licensed with Creative Commons.</div>
+			<div style="width: 100%;text-align:center;">
+				<!--<canvas width="128" height="128" id="figurehead" class="delayed"></canvas>-->
+				<div id="logo"></div>
+				<div id="social">
+					<a href="https://linkedin.com/in/tourupetja">LinkedIn</a>
+					<a href="https://twitter.com/petjato">Twitter</a>
+					<a href="https://github.com/petja">Github</a>
+					<a href="https://telegram.me/petjato">Telegram</a>
+					<a href="mailto:hello@petja.me">Email</a>
+				</div>
+			</div>
+			<!--<div style="margin:0 auto;max-width:600px;">
+				<div id="social" class="delayed">
+					<a href="https://facebook.com/petjato">Facebook</a>
+					<a href="https://twitter.com/petjato">Twitter</a>
+					<a href="https://linkedin.com/in/tourupetja">LinkedIn</a>
+					<a href="https://github.com/petja">Github</a>
+					<a href="mailto:hello@petja.me">Email</a>
+				</div>
+			</div>-->
+		</div>
+		<audio loop autoplay>
+			<source src="music.ogg" type="audio/ogg" />
+			<source src="music.mp3" type="audio/mpeg" />
+		</audio>
+	</body>
+</html>
