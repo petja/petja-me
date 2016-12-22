@@ -23,6 +23,46 @@
 				font-family: 'Roboto Mono', monospace;
 				cursor: default;
 			}
+			#backdrop{
+				position: fixed;
+				height: 100%;
+				width: 100%;
+				top: 0;
+				left: 0;
+				background: rgba(255, 255, 255, 0.75);
+				transition: 1s;
+				z-index: 17;
+				clip-path: circle(0% at calc(100% - 4em) calc(100% - 4em));
+				display: flex;
+				text-align: center;
+				align-items: center;
+			}
+			#backdrop span {
+				margin: 0 auto;
+				font-size: 2em;
+			}
+			#backdrop.closing{
+			}
+			#backdrop.opened{
+				clip-path: circle(100% at calc(100% - 4em) calc(100% - 4em));
+			}
+			#fab{
+				position: fixed;
+				bottom: 2em;
+				right: 2em;
+				height: 4em;
+				width: 4em;
+				color: #FFF;
+				border-radius: 50%;
+				z-index: 18;
+				background: #2979FF;
+				box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+				display: flex;
+				align-items: center;
+			}
+			#fab svg{
+				margin: 0 auto;
+			}
 			#face{
 				position: fixed;
 				top: 0;
@@ -258,6 +298,11 @@
 					blink.style.left = Math.floor(Math.random() * document.documentElement.clientWidth) + "px";
 					blink.className = "blink animated";
 				}, blink_round / blink_count);
+
+				document.querySelector("#fab").addEventListener("click", function(e) {
+					var backdrop = document.querySelector("#backdrop");
+					backdrop.className = (backdrop.className == "opened" ? "closed" : "opened");
+				});
 			});
 
 			/*page = -1;
@@ -340,6 +385,10 @@
 		</script>
 	</head>
 	<body>
+		<div id="backdrop">
+			<span>hello@petja.me</span>
+		</div>
+		<div id="fab" class="closed"><svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="#000000" d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z" /></svg></div>
 		<div id="foo">
 			<div id="screen"></div>
 			<div id="scanlines"></div>
