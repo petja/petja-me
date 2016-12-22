@@ -17,7 +17,6 @@
 				background-repeat: repeat-x;
 			}*/
 			body{
-				background: #000;
 				overflow-x: hidden;
 				font-size: 1.1em;
 				font-family: 'Roboto Mono', monospace;
@@ -30,7 +29,7 @@
 				top: 0;
 				left: 0;
 				background: rgba(255, 255, 255, 0.75);
-				transition: 1s;
+				transition: 0.3333s;
 				z-index: 17;
 				clip-path: circle(0% at calc(100% - 4em) calc(100% - 4em));
 				display: flex;
@@ -45,6 +44,7 @@
 			}
 			#backdrop.opened{
 				clip-path: circle(100% at calc(100% - 4em) calc(100% - 4em));
+				clip-path: circle(100vmax at calc(100% - 4em) calc(100% - 4em));
 			}
 			#fab{
 				position: fixed;
@@ -55,10 +55,19 @@
 				color: #FFF;
 				border-radius: 50%;
 				z-index: 18;
-				background: #2979FF;
+				background: #00E676;
 				box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
 				display: flex;
 				align-items: center;
+				transition: 0.3333s;
+			}
+			#fab:not(.opened):hover {
+				background: #69F0AE;
+				box-shadow: 0 2px 2px rgba(0, 0, 0, 0.75);
+			}
+			#fab.opened {
+				background: #FFF;
+				color: #000;
 			}
 			#fab svg{
 				margin: 0 auto;
@@ -81,6 +90,7 @@
 			}
 			#foo{
 				background-color: #0000ff;
+				color: #FFF;
 				background-image: url("stars.jpg");
 				background-size: cover;
 				height: 100%;
@@ -129,20 +139,12 @@
 				/*background: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.3333) 50%, transparent 100%);*/
 				/* Native gradient doesn't work in Firefox for some reason. Using SVG. */
 				background-size: 0.3em;
+			}
+			#scanlines.animated{
 				animation: scanlines;
 				animation-duration: 2s;
 				animation-iteration-count: infinite;
 				animation-timing-function: linear;
-			}
-			#slogan{
-				background: #ff0000;
-				color: #fff;
-				text-transform: uppercase;
-				font-weight: bold;
-				margin: 0.5em auto;
-				padding: 0.5em;
-				text-align: center;
-				animation-delay: 2s;
 			}
 			.delayed{
 				animation: logo;
@@ -150,31 +152,35 @@
 				transform: scale(0);
 				animation-fill-mode: forwards;
 			}
-			#social{
-				padding: 0;
-				color: #FFF;
-				display: flex;
+			#slogan, #social{
+				color: inherit;
+				text-transform: uppercase;
+				font-weight: bold;
+				max-width: 800px;
+				margin: 0 auto;
+			}
+			#slogan {
+				opacity: 0;
 				animation: fade_full;
 				animation-duration: 2s;
 				animation-delay: 2s;
 				animation-fill-mode: forwards;
-				text-transform: uppercase;
-				font-weight: bold;
-				max-width: 600px;
-				margin: 0 auto;
-				opacity: 0;
+				display: block;
+				text-align: center;
+				padding: 1em;
+			}
+			#social {
+				display: flex;
+				width: 100%;
+				font-size: 1.5em;
+				flex-wrap: wrap;
 			}
 			#social a {
 				display: block;
+				padding: 1em;
+				color: inherit;
 				text-decoration: none;
 				flex: 1;
-				padding: 0.5em;
-				color: inherit;
-				margin-top: 2em;
-				transition: 0.25s;
-			}
-			#social a:hover{
-				transform: scale(1.2);
 			}
 			#legal {
 				font-size: 0.8em;
@@ -190,7 +196,7 @@
 				left: 0;
 				bottom: 0;
 				margin: 2em;
-				z-index: 20;
+				z-index: 16;
 			}
 			#legal:hover{
 				opacity: 1;
@@ -280,7 +286,7 @@
 
 			document.addEventListener("DOMContentLoaded", function() {
 				//init_figure();
-				//go_to_page(0);
+				go_to_page(0);
 
 				for(i=0; i<blink_count; i++){
 					var blink = document.createElement("div");
@@ -301,11 +307,22 @@
 
 				document.querySelector("#fab").addEventListener("click", function(e) {
 					var backdrop = document.querySelector("#backdrop");
-					backdrop.className = (backdrop.className == "opened" ? "closed" : "opened");
+					var scanlines = document.querySelector("#scanlines");
+					var fab = document.querySelector("#fab");
+
+					if(backdrop.className == "opened") {
+						backdrop.className = "closed";
+						fab.className = "closed";
+						scanlines.className = "animated";
+					} else {
+						backdrop.className = "opened";
+						fab.className = "opened";
+						scanlines.className = "";
+					}
 				});
 			});
 
-			/*page = -1;
+			page = -1;
 
 			setInterval(function(){
 				page = (page + 1) % 6;
@@ -313,27 +330,28 @@
 
 			setInterval(function(){
 				go_to_page(page);
-			}, 50);*/
+			}, 50);
 
 			function go_to_page(n){
+				var slogan = document.querySelector('#slogan');
 				switch(n){
 					case 0:
-						document.querySelector('#slogan').innerText = "Full Stack Software Developer";
+						slogan.innerText = "Full Stack Software Developer";
 						break;
 					case 1:
-						document.querySelector('#slogan').innerText = "BBA Student @ HAMK UAS";
+						slogan.innerText = "BBA Student @ HAMK UAS";
 						break;
 					case 2:
-						document.querySelector('#slogan').innerText = "Location: Hämeenlinna, Finland";
+						slogan.innerText = "Location: Hämeenlinna, Finland";
 						break;
 					case 3:
-						document.querySelector('#slogan').innerText = "Age: " + age().toFixed(10) + " yrs";
+						slogan.innerText = "Age: " + age().toFixed(10) + " yrs";
 						break;
 					case 4:
-						document.querySelector('#slogan').innerText = 'People call me "tech geek"';
+						slogan.innerText = 'People call me "tech geek"';
 						break;
 					case 5:
-						document.querySelector('#slogan').innerText = "Design matters";
+						slogan.innerText = "Design matters";
 						break;
 				};
 			}
@@ -386,33 +404,23 @@
 	</head>
 	<body>
 		<div id="backdrop">
-			<span>hello@petja.me</span>
+			<div id="social">
+				<a href="https://linkedin.com/in/tourupetja">LinkedIn</a>
+				<a href="https://twitter.com/petjato">Twitter</a>
+				<a href="https://github.com/petja">Github</a>
+				<a href="https://telegram.me/petjato">Telegram</a>
+				<a href="mailto:hello@petja.me">Email</a>
+			</div>
 		</div>
 		<div id="fab" class="closed"><svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="#000000" d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z" /></svg></div>
 		<div id="foo">
 			<div id="screen"></div>
-			<div id="scanlines"></div>
+			<div id="scanlines" class="animated"></div>
 			<div id="legal">Website &copy; 2016 Petja Touru. Music: <em>Gray Is The Sky</em> by <em>Three Chain Links</em>. Music licensed with Creative Commons.</div>
 			<div style="width: 100%;text-align:center;">
-				<!--<canvas width="128" height="128" id="figurehead" class="delayed"></canvas>-->
 				<div id="logo"></div>
-				<div id="social">
-					<a href="https://linkedin.com/in/tourupetja">LinkedIn</a>
-					<a href="https://twitter.com/petjato">Twitter</a>
-					<a href="https://github.com/petja">Github</a>
-					<a href="https://telegram.me/petjato">Telegram</a>
-					<a href="mailto:hello@petja.me">Email</a>
-				</div>
+				<div id="slogan"></div>
 			</div>
-			<!--<div style="margin:0 auto;max-width:600px;">
-				<div id="social" class="delayed">
-					<a href="https://facebook.com/petjato">Facebook</a>
-					<a href="https://twitter.com/petjato">Twitter</a>
-					<a href="https://linkedin.com/in/tourupetja">LinkedIn</a>
-					<a href="https://github.com/petja">Github</a>
-					<a href="mailto:hello@petja.me">Email</a>
-				</div>
-			</div>-->
 		</div>
 		<audio loop autoplay>
 			<source src="music.ogg" type="audio/ogg" />
