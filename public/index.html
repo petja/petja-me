@@ -11,11 +11,6 @@
 				padding: 0;
 				height: 100%;
 			}
-			/*body{
-				background: #2f0fc7 url("retrosky.svg");
-				background-size: auto 100%;
-				background-repeat: repeat-x;
-			}*/
 			body{
 				overflow-x: hidden;
 				font-size: 1.1em;
@@ -28,7 +23,7 @@
 				width: 100%;
 				top: 0;
 				left: 0;
-				background: rgba(0, 0, 0, 0.8);
+				background: rgba(0, 0, 0, 0.85);
 				color: #FFF;
 				transition: 0.3333s;
 				z-index: 17;
@@ -36,12 +31,10 @@
 				display: flex;
 				text-align: center;
 				align-items: center;
+				flex-wrap: wrap;
 			}
-			#backdrop span {
-				margin: 0 auto;
-				font-size: 2em;
-			}
-			#backdrop.closing{
+			#backdrop div {
+				width: 100%;
 			}
 			#backdrop.opened{
 				clip-path: circle(100% at calc(100% - 4em) calc(100% - 4em));
@@ -62,9 +55,12 @@
 				align-items: center;
 				transition: 0.3333s;
 			}
-			#fab:not(.opened):hover {
-				background: #69F0AE;
-				box-shadow: 0 2px 2px rgba(0, 0, 0, 0.75);
+			#fab svg{
+				width: 1.5em;
+				height: 1.5em;
+			}
+			#fab-close-icon{
+				display: none;
 			}
 			#fab.opened {
 				background: #FFF;
@@ -73,26 +69,10 @@
 			#fab svg{
 				margin: 0 auto;
 			}
-			#face{
-				position: fixed;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				background: url("https://gravatar.com/avatar/3fe5cfc5d9eaeea3d15c8b5605c93514?s=512");
-				background-size: cover;
-				background-position: center;
-				opacity: 0;
-				z-index: 8;
-				pointer-events: none;
-				animation: face;
-				animation-duration: 12s;
-				animation-iteration-count: infinite;
-			}
 			#foo{
-				background-color: #0000ff;
+				background-color: #fca0d4;
 				color: #FFF;
-				background-image: url("background.jpg"), linear-gradient(#fe80fe, #fac0aa);
+				background-image: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url("background.jpg"), linear-gradient(#fe80fe, #fac0aa);
 				background-size: cover;
 				background-position: center center;
 				height: 100%;
@@ -113,7 +93,7 @@
 				animation-duration: 2s;
 				margin: 0 auto;
 			}
-			#scanlines,#noise,#screen{
+			#scanlines,#screen{
 				position: absolute;
 				top: 0;
 				left: 0;
@@ -123,20 +103,9 @@
 			}
 			#screen{
 				background: radial-gradient(ellipse, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%);
-				/*linear-gradient(90deg, rgba(0,0,255,0.5) 0%, rgba(128,0,255,0) 50%, rgba(255,0,255,0.5) 100%);*/
 				z-index: 15;
 			}
-			#noise{
-				/*z-index: 10;
-				opacity: 0.1;
-				background: url("noise.png");
-				animation: noise;
-				animation-duration: 0.1s;
-				animation-iteration-count: infinite;
-				animation-timing-function: linear;*/
-			}
 			#scanlines{
-				display: none;
 				z-index: 11;
 				background-image: url("scanline.svg");
 				/*background: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.3333) 50%, transparent 100%);*/
@@ -174,7 +143,6 @@
 			}
 			#social {
 				display: flex;
-				width: 100%;
 				font-size: 1.5em;
 				flex-wrap: wrap;
 			}
@@ -184,6 +152,13 @@
 				color: inherit;
 				text-decoration: none;
 				flex: 1;
+			}
+			#my-picture {
+				border-radius: 50%;
+				width: 7.5em;
+				box-shadow: 0 4px 4px rgba(0,0,0,0.5);
+				display: block;
+				margin: 0 auto;
 			}
 			#legal {
 				font-size: 0.8em;
@@ -266,20 +241,6 @@
 					background-position: 0 1.2em;
 				}
 			}
-			@keyframes face {
-				0% {
-					opacity: 0;
-				}
-				50% {
-					opacity: 0;
-				}
-				75% {
-					opacity: 0.075;
-				}
-				100% {
-					opacity: 0;
-				}
-			}
 		</style>
 		<script>
 			var blinks = [];
@@ -291,7 +252,7 @@
 				//init_figure();
 				go_to_page(0);
 
-				/*for(i=0; i<blink_count; i++){
+				for(i=0; i<blink_count; i++){
 					var blink = document.createElement("div");
 					blink.className = "blink";
 					blinks.push(blink);
@@ -302,28 +263,47 @@
 					blink_id = (blink_id + 1) % blink_count;
 					var blink = blinks[blink_id];
 
+					var logo_el = document.getElementById('logo');
+					var blink_pos = {
+						x : logo_el.offsetWidth * Math.random() + logo_el.offsetLeft,
+						y : logo_el.offsetHeight * Math.random() + logo_el.offsetTop,
+					};
+
 					blink.className = "blink";
-					blink.style.top = Math.floor(Math.random() * document.documentElement.clientHeight) + "px";
-					blink.style.left = Math.floor(Math.random() * document.documentElement.clientWidth) + "px";
+					blink.style.left = blink_pos.x + "px";
+					blink.style.top = blink_pos.y + "px";
 					blink.className = "blink animated";
-				}, blink_round / blink_count);*/
+				}, blink_round / blink_count);
 
 				document.querySelector("#fab").addEventListener("click", function(e) {
-					setTimeout(function(){
-						var backdrop = document.querySelector("#backdrop");
-						var scanlines = document.querySelector("#scanlines");
-						var fab = document.querySelector("#fab");
+					var backdrop = document.querySelector("#backdrop");
+					var scanlines = document.querySelector("#scanlines");
+					var fab = document.querySelector("#fab");
+					var close_icon = document.querySelector("#fab-close-icon");
+					var message_icon = document.querySelector("#fab-message-icon");
+					var bg_music = document.querySelector("#bg-music");
 
-						if(backdrop.className == "opened") {
-							backdrop.className = "closed";
-							fab.className = "closed";
-							scanlines.className = "animated";
-						} else {
-							backdrop.className = "opened";
-							fab.className = "opened";
-							scanlines.className = "";
-						}
-					}, 100);
+					if(backdrop.className == "opened") {
+						close_icon.style.display = "none";
+						message_icon.style.display = "block";
+
+						backdrop.className = "closed";
+						fab.className = "closed";
+						setTimeout(function(){
+							scanlines.style.display = "block";
+						}, 500);
+
+						bg_music.volume = 1;
+					} else {
+						close_icon.style.display = "block";
+						message_icon.style.display = "none";
+
+						backdrop.className = "opened";
+						fab.className = "opened";
+						scanlines.style.display = "none";
+
+						bg_music.volume = 0.2;
+					}
 				});
 			});
 
@@ -353,8 +333,8 @@
 			var slogans = [
 				"Full Stack Software Developer",
 				"BBA Student @ HAMK UAS",
-				"Currenty living at Hämeenlinna, Finland",
-				"Born " + Math.floor(age()) + " years ago",
+				"Currenty living in Hämeenlinna, Finland",
+				"Born " + age().toFixed(1) + " years ago",
 				"Railroad fanatic",
 			];
 
@@ -431,6 +411,9 @@
 	</head>
 	<body>
 		<div id="backdrop">
+			<div>
+				<img src="https://gravatar.com/avatar/3fe5cfc5d9eaeea3d15c8b5605c93514?s=256" alt="Picture of Petja Touru" id="my-picture" />
+			</div>
 			<div id="social">
 				<a href="https://linkedin.com/in/tourupetja">LinkedIn</a>
 				<a href="https://twitter.com/petjato">Twitter</a>
@@ -439,7 +422,10 @@
 				<a href="mailto:hello@petja.me">Email</a>
 			</div>
 		</div>
-		<div id="fab" class="closed"><svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="#000000" d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z" /></svg></div>
+		<div id="fab" class="closed">
+			<svg id="fab-close-icon" viewBox="0 0 24 24"><path fill="rgba(0,0,0,0.6)" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+			<svg id="fab-message-icon" viewBox="0 0 24 24"><path fill="rgba(0,0,0,0.6)" d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z" /></svg>
+		</div>
 		<div id="foo">
 			<div id="screen"></div>
 			<div id="scanlines" class="animated"></div>
@@ -449,7 +435,7 @@
 				<div id="slogan"></div>
 			</div>
 		</div>
-		<audio loop autoplay>
+		<audio loop autoplay id="bg-music">
 			<source src="snd/background.ogg" type="audio/ogg" />
 		</audio>
 	</body>
