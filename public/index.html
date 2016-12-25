@@ -19,13 +19,31 @@
 			}
 			#backdrop{
 				position: fixed;
-				height: 100%;
-				width: 100%;
 				top: 0;
 				left: 0;
-				background: rgba(0, 0, 0, 0.85);
+				height: 100%;
+				width: 100%;
+				background: #000;
+				z-index: 16;
+				opacity: 0;
+				pointer-events: none;
+				transition: 0.4s;
+			}
+			#backdrop.opened{
+				opacity: 0.8;
+			}
+			#contact-menu{
+				position: fixed;
+				right: 0;
+				bottom: 0;
+				height: 100%;
+				width: 100%;
+				max-width: 25em;
+				background: #0000FF;
 				color: #FFF;
-				transition: 0.3333s;
+				background-size: cover;
+				background-position: center center;
+				transition: all 0.4s linear;
 				z-index: 17;
 				clip-path: circle(0% at calc(100% - 4em) calc(100% - 4em));
 				display: flex;
@@ -33,12 +51,11 @@
 				align-items: center;
 				flex-wrap: wrap;
 			}
-			#backdrop div {
+			#contact-menu div {
 				width: 100%;
 			}
-			#backdrop.opened{
-				clip-path: circle(100% at calc(100% - 4em) calc(100% - 4em));
-				clip-path: circle(100vmax at calc(100% - 4em) calc(100% - 4em));
+			#contact-menu.opened{
+				clip-path: circle(120vmax at calc(100% - 4em) calc(100% - 4em));
 			}
 			#fab{
 				position: fixed;
@@ -89,7 +106,7 @@
 				width: 600px;
 				max-width: calc(100% - 64px);
 				height: 128px;
-				animation: logo;
+				animation: logo_entrance;
 				animation-duration: 2s;
 				margin: 0 auto;
 			}
@@ -102,7 +119,8 @@
 				pointer-events: none;
 			}
 			#screen{
-				background: radial-gradient(ellipse, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%);
+				background: radial-gradient(ellipse, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.75) 100%);
+				transition: 2s;
 				z-index: 15;
 			}
 			#scanlines{
@@ -214,12 +232,23 @@
 					opacity: 1;
 				}
 			}
-			@keyframes logo {
+			@keyframes logo_entrance {
 				0% {
 					transform: scale(0);
 				}
 				90% {
 					transform: scale(1.1);
+				}
+				100% {
+					transform: scale(1);
+				}
+			}
+			@keyframes logo_bounce {
+				0% {
+					transform: scale(1);
+				}
+				50% {
+					transform: scale(1.015);
 				}
 				100% {
 					transform: scale(1);
@@ -252,6 +281,11 @@
 				//init_figure();
 				go_to_page(0);
 
+				setTimeout(function(){
+					var logo = document.getElementById('logo');
+					logo.style.animation = "logo_bounce 0.54s infinite";
+				}, 3000);
+
 				for(i=0; i<blink_count; i++){
 					var blink = document.createElement("div");
 					blink.className = "blink";
@@ -276,6 +310,7 @@
 				}, blink_round / blink_count);
 
 				document.querySelector("#fab").addEventListener("click", function(e) {
+					var contact_menu = document.querySelector("#contact-menu");
 					var backdrop = document.querySelector("#backdrop");
 					var scanlines = document.querySelector("#scanlines");
 					var fab = document.querySelector("#fab");
@@ -283,21 +318,23 @@
 					var message_icon = document.querySelector("#fab-message-icon");
 					var bg_music = document.querySelector("#bg-music");
 
-					if(backdrop.className == "opened") {
+					if(contact_menu.className == "opened") {
 						close_icon.style.display = "none";
 						message_icon.style.display = "block";
 
-						backdrop.className = "closed";
+						contact_menu.className = "closed";
 						fab.className = "closed";
+
 						setTimeout(function(){
 							scanlines.style.display = "block";
-						}, 500);
-
-						bg_music.volume = 1;
+							backdrop.className = "closed";
+							bg_music.volume = 1;
+						}, 400);
 					} else {
 						close_icon.style.display = "block";
 						message_icon.style.display = "none";
 
+						contact_menu.className = "opened";
 						backdrop.className = "opened";
 						fab.className = "opened";
 						scanlines.style.display = "none";
@@ -313,7 +350,7 @@
 				setInterval(function(){
 					page++;
 					for(var i = 0; i < 4; i++) slogan_flash(i);
-				}, 3000);
+				}, 2500);
 			}, 1500);
 
 			function slogan_flash(i) {
@@ -410,7 +447,8 @@
 		</script>
 	</head>
 	<body>
-		<div id="backdrop">
+		<div id="backdrop"></div>
+		<div id="contact-menu">
 			<div>
 				<img src="https://gravatar.com/avatar/3fe5cfc5d9eaeea3d15c8b5605c93514?s=256" alt="Picture of Petja Touru" id="my-picture" />
 			</div>
