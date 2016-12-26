@@ -132,7 +132,7 @@
 				animation: logo_entrance;
 				animation-duration: 2s;
 				margin: 0 auto;
-				z-index: 10;
+				z-index: 9;
 			}
 			#scanlines,#screen{
 				position: absolute;
@@ -222,20 +222,20 @@
 				opacity: 1;
 				color: #FFF;
 			}
-			.blink{
-				background-image: url("blink.svg");
+			.star{
+				background-image: url("star.svg");
 				height: 16px;
 				width: 16px;
 				background-size: cover;
 				position: fixed;
 				top: 128px;
 				left: 128px;
-				z-index: 9;
+				z-index: 10;
 				pointer-events: none;
 			}
-			.blink.animated{
-				animation: blink;
-				animation-duration: 1s;
+			.star.animated{
+				animation: star;
+				animation-duration: 0.5s;
 				animation-direction: alternate;
 				animation-iteration-count: infinite;
 				animation-timing-function: linear;
@@ -278,7 +278,7 @@
 					transform: scale(1.02);
 				}
 			}
-			@keyframes blink {
+			@keyframes star {
 				0% {
 					transform: scale(0);
 				}
@@ -304,10 +304,9 @@
 			}
 		</style>
 		<script>
-			var blinks = [];
-			var blink_id = -1;
-			var blink_count = 12;
-			var blink_round = 2000;
+			var star_id = -1;
+			var star_count = 12;
+			var star_round = 1000;
 
 			document.addEventListener("DOMContentLoaded", function() {
 				//init_figure();
@@ -320,28 +319,29 @@
 
 				var stars_el = document.getElementById('stars');
 
-				for(i=0; i<blink_count; i++){
-					var blink = document.createElement("div");
-					blink.className = "blink";
-					blinks.push(blink);
-					stars.appendChild(blink);
+				for(i=0; i<star_count; i++){
+					var star = document.createElement("div");
+					star.className = "star";
+
+					stars.appendChild(star);
 				}
 
 				setInterval(function(){
-					blink_id = (blink_id + 1) % blink_count;
-					var blink = blinks[blink_id];
-
 					var logo_el = document.getElementById('logo');
-					var blink_pos = {
+					var stars_el = document.getElementById('stars');
+
+					star_id = (star_id + 1) % star_count;
+					var star = stars_el.childNodes[star_id];
+					var star_pos = {
 						x : logo_el.offsetWidth * Math.random() + logo_el.offsetLeft,
 						y : logo_el.offsetHeight * Math.random() + logo_el.offsetTop,
 					};
 
-					blink.className = "blink";
-					blink.style.left = blink_pos.x + "px";
-					blink.style.top = blink_pos.y + "px";
-					blink.className = "blink animated";
-				}, blink_round / blink_count);
+					star.className = "star";
+					star.style.left = star_pos.x + "px";
+					star.style.top = star_pos.y + "px";
+					star.className = "star animated";
+				}, star_round / star_count);
 
 				document.querySelector("#fab").addEventListener("click", function(e) {
 					var contact_menu = document.querySelector("#contact-menu");
