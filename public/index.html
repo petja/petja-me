@@ -86,17 +86,40 @@
 			#fab svg{
 				margin: 0 auto;
 			}
-			#foo{
-				background-color: #fca0d4;
-				color: #FFF;
-				background-image: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url("background.jpg"), linear-gradient(#fe80fe, #fac0aa);
+			#bg{
+				background-image: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url("background.jpg"); 
 				background-size: cover;
 				background-position: center center;
+				width: 100%;
 				height: 100%;
+				position: fixed;
+				left: 0;
+				top: 0;
+				z-index: 7;
+			}
+			#gradient {
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				left: 0;
+				top: 0;
+				background-color: #fca0d4;
+				/*background-image: linear-gradient(#fe80fe 0%, #fac0aa 100%, #C774E8 200%, #94D0FF 300%);*/
+				background-size: 100% 100%;
+				z-index: 6;
+			}
+			#content{
+				color: #FFF;
 				display: flex;
 				align-items: center;
 				flex-wrap: wrap;
 				overflow: hidden;
+				z-index: 10;
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				left: 0;
+				top: 0;
 			}
 			#logo{
 				background: url("petjalogo.svg");
@@ -109,6 +132,7 @@
 				animation: logo_entrance;
 				animation-duration: 2s;
 				margin: 0 auto;
+				z-index: 10;
 			}
 			#scanlines,#screen{
 				position: absolute;
@@ -236,7 +260,7 @@
 				0% {
 					transform: scale(0);
 				}
-				90% {
+				50% {
 					transform: scale(1.1);
 				}
 				100% {
@@ -247,11 +271,11 @@
 				0% {
 					transform: scale(1);
 				}
-				50% {
-					transform: scale(1.015);
+				90% {
+					transform: scale(1);
 				}
 				100% {
-					transform: scale(1);
+					transform: scale(1.02);
 				}
 			}
 			@keyframes blink {
@@ -270,11 +294,19 @@
 					background-position: 0 1.2em;
 				}
 			}
+			@keyframes gradient {
+				0% {
+					background-position: 0% center;
+				}
+				100% {
+					background-position: 200% center;
+				}
+			}
 		</style>
 		<script>
 			var blinks = [];
 			var blink_id = -1;
-			var blink_count = 25;
+			var blink_count = 12;
 			var blink_round = 2000;
 
 			document.addEventListener("DOMContentLoaded", function() {
@@ -283,14 +315,16 @@
 
 				setTimeout(function(){
 					var logo = document.getElementById('logo');
-					logo.style.animation = "logo_bounce 0.54s infinite";
+					logo.style.animation = "logo_bounce 0.54s infinite alternate";
 				}, 3000);
+
+				var stars_el = document.getElementById('stars');
 
 				for(i=0; i<blink_count; i++){
 					var blink = document.createElement("div");
 					blink.className = "blink";
 					blinks.push(blink);
-					document.body.appendChild(blink);
+					stars.appendChild(blink);
 				}
 
 				setInterval(function(){
@@ -464,15 +498,18 @@
 			<svg id="fab-close-icon" viewBox="0 0 24 24"><path fill="rgba(0,0,0,0.6)" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
 			<svg id="fab-message-icon" viewBox="0 0 24 24"><path fill="rgba(0,0,0,0.6)" d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z" /></svg>
 		</div>
-		<div id="foo">
 			<div id="screen"></div>
 			<div id="scanlines" class="animated"></div>
 			<div id="legal">Website &copy; 2017 Petja Touru <!--Music: <em>Gray Is The Sky</em> by <em>Three Chain Links</em>. Music licensed with Creative Commons.--></div>
+		<div id="gradient"></div>
+		<div id="bg"></div>
+		<div id="content">
 			<div style="width: 100%;text-align:center;">
 				<div id="logo"></div>
 				<div id="slogan"></div>
 			</div>
 		</div>
+		<div id="stars"></div>
 		<audio loop autoplay id="bg-music">
 			<source src="snd/background.ogg" type="audio/ogg" />
 		</audio>
