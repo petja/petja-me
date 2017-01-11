@@ -16,3 +16,9 @@ tags
 
 # logs
 .log
+
+# Node modules
+node_modules/
+
+# Compiled files
+public/

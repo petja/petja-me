@@ -232,6 +232,10 @@ body{
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }
+#center {
+	text-align: center;
+	width: 100%;
+}
 @keyframes fade_half {
     0% {
         opacity: 0;

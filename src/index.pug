@@ -1,0 +1,39 @@
+doctype html
+html
+    head
+        title Petja Touru
+        meta(charset='UTF-8')
+        meta(content='width=device-width,initial-scale=1', name='viewport')
+        link(href='https://fonts.googleapis.com/css?family=Roboto+Mono', rel='stylesheet')
+        link(href='style.css', rel='stylesheet')
+        script(src='script.js')
+    body
+        #backdrop
+        #contact-menu
+            div
+                img#my-picture(src='https://gravatar.com/avatar/3fe5cfc5d9eaeea3d15c8b5605c93514?s=256', alt='Picture of Petja Touru')
+            #social
+                a(href='https://linkedin.com/in/tourupetja') LinkedIn
+                a(href='https://twitter.com/petjato') Twitter
+                a(href='https://github.com/petja') Github
+                a(href='https://telegram.me/petjato') Telegram
+                a(href='mailto:hello@petja.me') Email
+        #fab.closed
+            svg#fab-close-icon(viewbox='0 0 24 24')
+                path(fill='rgba(0,0,0,0.6)', d='M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z')
+            svg#fab-message-icon(viewbox='0 0 24 24')
+                path(fill='rgba(0,0,0,0.6)', d='M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z')
+        #screen
+        #scanlines.animated
+        #legal
+            | Website © 2017 Petja Touru
+            //- Music: <em>Gray Is The Sky</em> by <em>Three Chain Links</em>. Music licensed with Creative Commons.
+        #gradient
+        #bg
+        #content
+            #center
+                #logo
+                #slogan
+        #stars
+        audio#bg-music(loop='', autoplay='')
+            source(src='snd/background.ogg', type='audio/ogg')
