@@ -17,8 +17,9 @@ tags
 # logs
 .log
 
-# Node modules
+# Node
 node_modules/
+npm-debug.log
 
 # Compiled files
 public/

@@ -1,23 +1,24 @@
 {
-		"name": "petjame",
-				"version": "1.0.0",
-				"description": "",
-				"main": "index.js",
-				"scripts": {
-						"build": "rm public/ -rf && cp src/ public/ -R && pug src --out public",
-						"test": "echo \"Error: no test specified\" && exit 1"
-				},
-				"repository": {
-						"type": "git",
-						"url": "git+https://github.com/petja/petja-me.git"
-				},
-				"author": "",
-				"license": "ISC",
-				"bugs": {
-						"url": "https://github.com/petja/petja-me/issues"
-				},
-				"homepage": "https://github.com/petja/petja-me#readme",
-				"devDependencies": {
-						"pug-cli": "^1.0.0-alpha6"
-				}
+  "name": "petjame",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm public/ -rf && cp src/ public/ -R && pug src --out public -w & stylus -w -c src -o public",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/petja/petja-me.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/petja/petja-me/issues"
+  },
+  "homepage": "https://github.com/petja/petja-me#readme",
+  "devDependencies": {
+    "pug-cli": "^1.0.0-alpha6",
+    "stylus": "^0.54.5"
+  }
 }

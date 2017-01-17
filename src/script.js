@@ -37,34 +37,36 @@ document.addEventListener("DOMContentLoaded", function() {
         star.className = "star animated";
     }, star_round / star_count);
 
-    document.querySelector("#fab").addEventListener("click", function(e) {
+    document.querySelector("#start-btn").addEventListener("click", function(e) {
         var contact_menu = document.querySelector("#contact-menu");
         var backdrop = document.querySelector("#backdrop");
         var scanlines = document.querySelector("#scanlines");
-        var fab = document.querySelector("#fab");
-        var close_icon = document.querySelector("#fab-close-icon");
-        var message_icon = document.querySelector("#fab-message-icon");
+        //var fab = document.querySelector("#fab");
+        //var close_icon = document.querySelector("#fab-close-icon");
+        //var message_icon = document.querySelector("#fab-message-icon");
         var bg_music = document.querySelector("#bg-music");
 
         if(contact_menu.className == "opened") {
-            close_icon.style.display = "none";
-            message_icon.style.display = "block";
+            //close_icon.style.display = "none";
+            //message_icon.style.display = "block";
 
             contact_menu.className = "closed";
-            fab.className = "closed";
+            //fab.className = "closed";
 
             setTimeout(function(){
+                contact_menu.style.display = "none";
                 scanlines.style.display = "block";
                 backdrop.className = "closed";
                 bg_music.volume = 1;
             }, 400);
         } else {
-            close_icon.style.display = "block";
-            message_icon.style.display = "none";
+            //close_icon.style.display = "block";
+            //message_icon.style.display = "none";
 
+            contact_menu.style.display = "block";
             contact_menu.className = "opened";
             backdrop.className = "opened";
-            fab.className = "opened";
+            //fab.className = "opened";
             scanlines.style.display = "none";
 
             bg_music.volume = 0.2;
