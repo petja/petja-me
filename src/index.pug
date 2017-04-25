@@ -9,7 +9,7 @@ html
         script(src='script.js')
     body
         #backdrop
-        #contact-menu: div
+        #contact-card.card: div
             img#my-picture(src='https://gravatar.com/avatar/3fe5cfc5d9eaeea3d15c8b5605c93514?s=256', alt='Picture of Petja Touru')
             #social
                 a(href='https://linkedin.com/in/tourupetja') LinkedIn
@@ -33,5 +33,5 @@ html
                     svg(viewbox='0 0 24 24')
                         path(fill='rgba(0,0,0,0.6)', d='M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z')
         #stars
-        audio#bg-music(loop, autoplay)
+        //- audio#bg-music(loop, autoplay)
             source(src='snd/background.ogg', type='audio/ogg')

@@ -1,17 +1,86 @@
-var star_id = -1;
-var star_count = 12;
-var star_round = 1000;
+star_id = -1;
+star_count = 12;
+star_round = 1000;
+
+/*spark_id = -1;
+spark_count = 500;
+spark_round = 10000;*/
+
+logo_el = document.getElementById('logo');
+stars_el = document.getElementById('stars');
+sparks_el = document.getElementById('sparks');
 
 document.addEventListener("DOMContentLoaded", function() {
     //init_figure();
     go_to_page(0);
 
     setTimeout(function(){
-        var logo = document.getElementById('logo');
-        logo.style.animation = "logo_bounce 0.54s infinite alternate";
+        logo_el = document.getElementById('logo');
+        logo_el.style.animation = "logo_bounce 0.54s infinite alternate";
     }, 3000);
 
-    var stars_el = document.getElementById('stars');
+    /*
+    for(i=0; i<spark_count; i++){
+        var spark = document.createElement("div");
+        spark.className = "spark";
+
+        sparks_el.appendChild(spark);
+    }
+    setInterval(function(){
+        spark_id = (spark_id + 1) % spark_count;
+        var spark = sparks_el.childNodes[spark_id];
+
+        var percent = spark_id / spark_count;
+        var x = window.innerWidth * percent;
+
+        var spark_pos_a = {
+            x : x,
+            y : Math.random() * 8 - 12
+        };
+        var spark_pos_b = {
+            x : x + (Math.random() * 128 + 128),
+            y : window.innerHeight / 5
+        };
+        var spark_pos_c = {
+            x : (spark_pos_a.x + spark_pos_b.x) / 2,
+            y : (spark_pos_a.y + spark_pos_b.y) / 2,
+        };
+
+        spark.animate([
+            {
+                left        : spark_pos_a.x + 'px',
+                top         : spark_pos_a.y + 'px',
+                transform   : 'scale(0.5)'
+            },
+            {
+                left        : spark_pos_c.x + 'px',
+                top         : spark_pos_c.y + 'px',
+                transform   : 'scale(1)'
+            },
+            {
+                left        : spark_pos_b.x + 'px',
+                top         : spark_pos_b.y + 'px',
+                transform   : 'scale(0)'
+            }
+        ], spark_round / 4);
+    }, spark_round * 1.5 / spark_count);*/
+
+    /*setInterval(function(){
+        setTimeout(function(){
+                logo_el = document.getElementById('logo');
+                logo_el.animate([
+                        {
+                                transform : 'scaleX(1)'
+                        },
+                        {
+                                transform : 'scaleX(2) scaleY(0.5)'
+                        },
+                        {
+                                transform : 'scaleX(1)'
+                        }
+                ], 250);
+        }, 2500 * Math.random());
+    }, 7500);*/
 
     for(i=0; i<star_count; i++){
         var star = document.createElement("div");
@@ -21,8 +90,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     setInterval(function(){
-        var logo_el = document.getElementById('logo');
         var stars_el = document.getElementById('stars');
+        var logo_el = document.getElementById('logo');
 
         star_id = (star_id + 1) % star_count;
         var star = stars_el.childNodes[star_id];
@@ -38,7 +107,11 @@ document.addEventListener("DOMContentLoaded", function() {
     }, star_round / star_count);
 
     document.querySelector("#start-btn").addEventListener("click", function(e) {
-        var contact_menu = document.querySelector("#contact-menu");
+
+        window.open('mailto:hello@petja.me');
+        return;
+
+        var contact_menu = document.querySelector("#contact-card");
         var backdrop = document.querySelector("#backdrop");
         var scanlines = document.querySelector("#scanlines");
         //var fab = document.querySelector("#fab");
