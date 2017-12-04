@@ -9,6 +9,7 @@ body
     font-family 'Roboto Mono', monospace
     cursor default
     background #000040
+    animation 5s bg-pulse ease infinite alternate
 
 #backdrop
     position fixed
@@ -76,6 +77,10 @@ body
     margin 0 auto
     text-align center
 
+    &:hover
+        transform scale(1.1)
+        cursor pointer
+
 #start-btn svg
     width 1.5em
     height 1.5em
@@ -111,10 +116,10 @@ body
     margin 0 auto
 
 #bg
-    background-image linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url("img/bg.jpg") 
-    opacity 0.5
-    background-size cover
-    background-position center center
+    //background-image linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url("img/bg.jpg") 
+    //opacity 0.5
+    //background-size cover
+    //background-position center center
     width 100%
     height 100%
     position fixed
@@ -248,21 +253,12 @@ body
     opacity 1
     color #FFF
 
-.spark
-    background-image url("img/star.svg")
-    height 16px
-    width 16px
-    background-size cover
-    position fixed
-    z-index 99
-    pointer-events none
-
 .star
     background-image url("img/star.svg")
     height 16px
     width 16px
     background-size cover
-    position fixed
+    position absolute
     z-index 10
     pointer-events none
 
@@ -286,6 +282,13 @@ body
     max-width 40em
     text-align center
     width 100%
+
+.image
+    height 15em
+    width 100%
+    background-image url('img/bg.jpg')
+    background-size cover
+    background-position center center
 
 @keyframes start-ripple
     0%
@@ -370,3 +373,10 @@ body
         transform translateX(0.1em)
     100%
         transform translateX(-0.1em)
+
+@keyframes bg-pulse
+    0%
+        background #000040
+
+    100%
+        background #000060

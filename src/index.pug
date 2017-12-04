@@ -2,12 +2,13 @@
 - devEmoji = "👨‍💻"
 - transportEmoji = "🚆✈️🚍"
 - studentEmoji = "👨‍🎓"
-- walkingEmoji = "🚶‍♂️"
-- cyclingEmoji = "🚴‍♂️"
+- walkingEmoji = "🚶‍"
+- cyclingEmoji = "🚴‍"
 - cameraEmoji = "📷"
 - gameEmoji = "🎮"
 - museumEmoji = "🖼️"
 - muscleEmoji = "💪"
+- pinEmoji = "🌍"
 
 doctype html
 html
@@ -31,20 +32,27 @@ html
         #screen
         //- #scanlines.animated
         //- #gradient
-        #bg
+        //- #bg
         #content
             #center
+                canvas#figurehead
                 #logo
 
-                p I'm 20 years old #{designEmoji} design oriented #{devEmoji} software developer with interest on #{transportEmoji} public transport, especially on rail transport.
+                p I'm 20 years old #{designEmoji} design oriented #{devEmoji} software developer with interest on #{transportEmoji} public transport, especially when it's done on rails.
 
-                p Currently I'm studying #{studentEmoji} Bachelor Of Information Techonology at HAMK UAS, graduating in 2019.
+                p Currently I'm living in #{pinEmoji} Hämeenlinna, Finland and studying #{studentEmoji} Bachelor Of Information Techonology at HAMK University Of Applied Sciences, graduating in 2019.
 
                 p On my free time I'm working with my personal coding projects, #{cameraEmoji} photographing, #{walkingEmoji} walking, #{cyclingEmoji} cycling, #{gameEmoji} playing video games and visiting #{museumEmoji} museums.
 
-                p My skill set includes HTML, CSS, Node, React, Firebase, Linux and list goes on. As a hobby I've programmed almost half of my life. #{muscleEmoji}
+                .image
+                p I took this picture at Karjaa, Finland. August 13, 2017.
 
-                p Feel free to drop me a message
+                p My skills include but are not limited to HTML, CSS, Node, React, Firebase and Linux. I have keen eye to UX design. As a hobby I've programmed almost half of my life. #{muscleEmoji}
+
+                p
+                    | Feel free to drop me a message
+                    br
+                    | I have one hour response time for most of day
 
                 #start-ripple
                 #start-btn

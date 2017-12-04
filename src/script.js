@@ -10,8 +10,13 @@ let logo_el = document.getElementById('logo');
 let stars_el = document.getElementById('stars');
 let sparks_el = document.getElementById('sparks');
 
+let figure_ctx;
+let figure_canvas;
+let figure_img = new Image;
+let mouse_pos = [0, 0];
+
 document.addEventListener("DOMContentLoaded", function() {
-    //init_figure();
+    init_figure();
     //go_to_page(0);
 
     /*setTimeout(function(){
@@ -53,8 +58,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 transform   : 'scale(0.5)'
             },
             {
-                left        : spark_pos_c.x + 'px',
-                top         : spark_pos_c.y + 'px',
+                left        : spark_pos_figure_canvas.x + 'px',
+                top         : spark_pos_figure_canvas.y + 'px',
                 transform   : 'scale(1)'
             },
             {
@@ -130,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 contact_menu.style.display = "none";
                 scanlines.style.display = "block";
                 backdrop.className = "closed";
-                bg_music.volume = 1;
+                bg_musifigure_canvas.volume = 1;
             }, 400);
         } else {
             //close_icon.style.display = "block";
@@ -142,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function() {
             //fab.className = "opened";
             scanlines.style.display = "none";
 
-            bg_music.volume = 0.2;
+            bg_musifigure_canvas.volume = 0.2;
         }
     });
 });
@@ -188,40 +193,40 @@ function age(){
 }
 
 function init_figure() {
-    c = document.getElementById("figurehead");
-    ctx = c.getContext("2d");
+    figure_canvas = document.getElementById("figurehead");
+    figure_ctx = figure_canvas.getContext("2d");
 
     document.addEventListener("mousemove", function(e) {
-        draw_figure(e.pageX, e.pageY);
+        mouse_pos = [e.pageX, e.pageY];
+        drawFigure();
     });
 
-    figure_img = new Image;
+    document.addEventListener("scroll", drawFigure);
+
     figure_img.src = 'img/pixelart.png';
 
-    figure_img.onload = function(){
-            draw_figure(0, 0);
-    };
+    figure_img.onload = drawFigure;
 }
 
-function draw_figure(mouseX, mouseY){
+function drawFigure(){
     // Clear canvas
-    ctx.clearRect(0, 0, c.width, c.height);
+    figure_ctx.clearRect(0, 0, figure_canvas.width, figure_canvas.height);
 
     // Calculate rotation
-    var canvas_position = c.getBoundingClientRect();
-    var angle = get_angle_between_coordinates(mouseX, canvas_position.left + c.width / 2, mouseY, canvas_position.top + c.height / 2);
+    var canvas_position = figure_canvas.getBoundingClientRect();
+    var angle = get_angle_between_coordinates(mouse_pos[0], canvas_position.left + figure_canvas.width / 2, mouse_pos[1], canvas_position.top + figure_canvas.height / 2);
 
     // Draw!
-    ctx.save();
-    ctx.translate(c.width / 2, c.height / 2);
+    figure_ctx.save();
+    figure_ctx.translate(figure_canvas.width / 2, figure_canvas.height / 2);
     if((angle + Math.PI) > 4.7124 || (angle + Math.PI) < 1.5708){
-        ctx.scale(1, -1);
-        ctx.rotate(-angle);
+        figure_ctx.scale(1, -1);
+        figure_ctx.rotate(-angle);
     }else{
-        ctx.rotate(angle);
+        figure_ctx.rotate(angle);
     }
-    ctx.drawImage(figure_img, -48, -64, 96, 128);
-    ctx.restore();
+    figure_ctx.drawImage(figure_img, -48, -64, 96, 128);
+    figure_ctx.restore();
 }
 
 function get_angle_between_coordinates(x1, x2, y1, y2) {
