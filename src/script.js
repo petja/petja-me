@@ -1,23 +1,23 @@
-star_id = -1;
-star_count = 12;
-star_round = 1000;
+let star_id = -1;
+let star_count = 12;
+let star_round = 1000;
 
 /*spark_id = -1;
 spark_count = 500;
 spark_round = 10000;*/
 
-logo_el = document.getElementById('logo');
-stars_el = document.getElementById('stars');
-sparks_el = document.getElementById('sparks');
+let logo_el = document.getElementById('logo');
+let stars_el = document.getElementById('stars');
+let sparks_el = document.getElementById('sparks');
 
 document.addEventListener("DOMContentLoaded", function() {
     //init_figure();
-    go_to_page(0);
+    //go_to_page(0);
 
-    setTimeout(function(){
+    /*setTimeout(function(){
         logo_el = document.getElementById('logo');
         logo_el.style.animation = "logo_bounce 0.54s infinite alternate";
-    }, 3000);
+    }, 3000);*/
 
     /*
     for(i=0; i<spark_count; i++){
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 2500 * Math.random());
     }, 7500);*/
 
-    for(i=0; i<star_count; i++){
+    for(let i=0; i<star_count; i++){
         var star = document.createElement("div");
         star.className = "star";
 
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     document.querySelector("#start-btn").addEventListener("click", function(e) {
 
-        window.open('mailto:hello@petja.me');
+        window.open('https://t.me/petjato');
         return;
 
         var contact_menu = document.querySelector("#contact-card");
@@ -147,14 +147,14 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-page = 0;
+let page = 0;
 
-setTimeout(function(){
+/*setTimeout(function(){
     setInterval(function(){
         page++;
         for(var i = 0; i < 4; i++) slogan_flash(i);
     }, 2500);
-}, 1500);
+}, 1500);*/
 
 function slogan_flash(i) {
     slogan_element = document.querySelector('#slogan');
@@ -166,9 +166,9 @@ function slogan_flash(i) {
     }, i * 150);
 }
 
-setInterval(function(){
+/*setInterval(function(){
     go_to_page(page);
-}, 50);
+}, 50);*/
 
 var slogans = [
     "Full Stack Software Developer",

@@ -1,0 +1,35 @@
+[debug] [2017-12-04T08:30:38.019Z] ----------------------------------------------------------------------
+[debug] [2017-12-04T08:30:38.022Z] Command:       /usr/bin/node /usr/bin/firebase serve -o dev.petja.me
+[debug] [2017-12-04T08:30:38.022Z] CLI Version:   3.15.4
+[debug] [2017-12-04T08:30:38.023Z] Platform:      linux
+[debug] [2017-12-04T08:30:38.023Z] Node Version:  v8.7.0
+[debug] [2017-12-04T08:30:38.023Z] Time:          Mon Dec 04 2017 10:30:38 GMT+0200 (EET)
+[debug] [2017-12-04T08:30:38.023Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-12-04T08:30:38.037Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-12-04T08:30:38.037Z] > authorizing via signed-in user
+[debug] [2017-12-04T08:30:38.040Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/petja-me-9086b  
+ Mon Dec 04 2017 10:30:38 GMT+0200 (EET)
+[debug] [2017-12-04T08:30:39.200Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-04T08:30:39.201Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/petja-me-9086b/tokens  
+ Mon Dec 04 2017 10:30:39 GMT+0200 (EET)
+[debug] [2017-12-04T08:30:39.821Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/home/petja/projects/petjame'...
+[info] 
+[debug] [2017-12-04T08:30:39.829Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/petja-me-9086b  
+ Mon Dec 04 2017 10:30:39 GMT+0200 (EET)
+[debug] [2017-12-04T08:30:40.516Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-04T08:30:40.517Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/92505312000/clients/_:getWebAppConfig  
+ Mon Dec 04 2017 10:30:40 GMT+0200 (EET)
+[debug] [2017-12-04T08:30:40.958Z] <<< HTTP RESPONSE 200
+[warn] ⚠  hosting: Port 5000 is not available. Trying another port...
+[debug] [2017-12-04T08:30:40.990Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/petja-me-9086b  
+ Mon Dec 04 2017 10:30:40 GMT+0200 (EET)
+[debug] [2017-12-04T08:30:41.651Z] <<< HTTP RESPONSE 200
+[debug] [2017-12-04T08:30:41.652Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/92505312000/clients/_:getWebAppConfig  
+ Mon Dec 04 2017 10:30:41 GMT+0200 (EET)
+[debug] [2017-12-04T08:30:42.039Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://dev.petja.me:5004
+

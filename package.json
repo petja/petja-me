@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rm public/ -rf && cp src/ public/ -R && pug src --out public -w & stylus -w -c src -o public",
+    "build": "rm public/ -rf && cp src/ public/ -R && pug src --out public -w & stylus -w -c src -o public & babel src/ -d public/ -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "git+https://github.com/petja/petja-me.git",
@@ -15,6 +15,9 @@
   },
   "homepage": "https://github.com/petja/petja-me#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "pug-cli": "^1.0.0-alpha6",
     "stylus": "^0.54.5"
   },
