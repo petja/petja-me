@@ -7,11 +7,8 @@
     "build": "rm public/ -rf && cp src/ public/ -R && pug src --out public -w & stylus -w -c src -o public",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/petja/petja-me.git"
-  },
-  "author": "",
+  "repository": "git+https://github.com/petja/petja-me.git",
+  "author": "Petja <hello@petja.me>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/petja/petja-me/issues"
@@ -20,5 +17,6 @@
   "devDependencies": {
     "pug-cli": "^1.0.0-alpha6",
     "stylus": "^0.54.5"
-  }
+  },
+  "private": true
 }
