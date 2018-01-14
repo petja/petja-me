@@ -21,5 +21,6 @@
     "pug-cli": "^1.0.0-alpha6",
     "stylus": "^0.54.5"
   },
-  "private": true
+  "private": true,
+  "dependencies": {}
 }

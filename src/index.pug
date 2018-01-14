@@ -18,6 +18,7 @@ html
         meta(content='width=device-width,initial-scale=1', name='viewport')
         link(href='https://fonts.googleapis.com/css?family=Roboto+Mono', rel='stylesheet')
         link(href='style.css', rel='stylesheet')
+        script(src='https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js')
         script(src='script.js')
     body
         #backdrop
@@ -30,37 +31,36 @@ html
                 a(href='https://telegram.me/petjato') Telegram
                 a(href='mailto:hello@petja.me') Email
         #screen
-        //- #scanlines.animated
+        #scanlines.animated
         //- #gradient
         //- #bg
         #content
             #center
-                canvas#figurehead
                 #logo
 
-                p I'm 20 years old #{designEmoji} design oriented #{devEmoji} software developer with interest on #{transportEmoji} public transport, especially when it's done on rails.
+                #text
+                    p I'm 20 years old #{designEmoji} design oriented #{devEmoji} software developer with interest on #{transportEmoji} public transport, especially when it's done on rails.
 
-                p Currently I'm living in #{pinEmoji} Hämeenlinna, Finland and studying #{studentEmoji} Bachelor Of Information Techonology at HAMK University Of Applied Sciences, graduating in 2019.
+                    p Currently I'm living in #{pinEmoji} Hämeenlinna, Finland and studying #{studentEmoji} Bachelor Of Information Technology at HAMK University Of Applied Sciences, graduating in 2019.
 
-                p On my free time I'm working with my personal coding projects, #{cameraEmoji} photographing, #{walkingEmoji} walking, #{cyclingEmoji} cycling, #{gameEmoji} playing video games and visiting #{museumEmoji} museums.
+                    p On my free time I'm working with my personal coding projects, #{cameraEmoji} photographing, #{walkingEmoji} walking, #{cyclingEmoji} cycling, #{gameEmoji} playing video games and visiting #{museumEmoji} museums.
 
-                .image
-                p I took this picture at Karjaa, Finland. August 13, 2017.
+                    p My skills include but are not limited to HTML, CSS, Node, React, Firebase and Linux. I have keen eye to UX design. As a hobby I've programmed almost half of my life. #{muscleEmoji}
 
-                p My skills include but are not limited to HTML, CSS, Node, React, Firebase and Linux. I have keen eye to UX design. As a hobby I've programmed almost half of my life. #{muscleEmoji}
-
-                p
-                    | Feel free to drop me a message
-                    br
-                    | I have one hour response time for most of day
+                    p
+                        | Feel free to drop me a message
+                        br
+                        | I have one hour response time for most of day
 
                 #start-ripple
-                #start-btn
+                #start-btn(title='Contact me on Telegram')
                     svg(viewbox='0 0 24 24')
                         path(fill='rgba(0,0,0,0.6)', d='M17,12V3A1,1 0 0,0 16,2H3A1,1 0 0,0 2,3V17L6,13H16A1,1 0 0,0 17,12M21,6H19V15H6V17A1,1 0 0,0 7,18H18L22,22V7A1,1 0 0,0 21,6Z')
         #stars
         //- #legal
             | Website © 2017 Petja Touru
             //- Music: <em>Gray Is The Sky</em> by <em>Three Chain Links</em>. Music licensed with Creative Commons.
-        //- audio#bg-music(loop, autoplay)
-            source(src='snd/background.ogg', type='audio/ogg')
+        audio(autoplay)
+            source(src='snd/startup.mp3')
+        audio#bg-music(loop, autoplay)
+            source(src='snd/bg.ogg', type='audio/ogg')

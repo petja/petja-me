@@ -16,7 +16,7 @@ let figure_img = new Image;
 let mouse_pos = [0, 0];
 
 document.addEventListener("DOMContentLoaded", function() {
-    init_figure();
+    //init_figure();
     //go_to_page(0);
 
     /*setTimeout(function(){
@@ -232,3 +232,7 @@ function drawFigure(){
 function get_angle_between_coordinates(x1, x2, y1, y2) {
     return Math.atan2(y2 - y1, x2 - x1);
 }
+
+particlesJS.load('screen', 'particles.json', function() {
+    console.log('callback - particles.js config loaded');
+})
