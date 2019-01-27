@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "name": "petjame",
+  "builds": [
+    { "src": "public/index.html", "use": "@now/static" },
+    { "src": "public/style.css", "use": "@now/static" },
+    { "src": "public/script.js", "use": "@now/static" }
+  ]
+}
