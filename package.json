@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf public/ && cp -R src/ public/ && pug src --out public -w & stylus -w -c src -o public & babel src/ -d public/ -w",
+    "build": "rm -rf dist && parcel build src/index.html --out-dir dist",
+    "watch": "rm -rf dist && parcel serve src/index.html --out-dir dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "git+https://github.com/petja/petja-me.git",
@@ -14,13 +15,20 @@
     "url": "https://github.com/petja/petja-me/issues"
   },
   "homepage": "https://github.com/petja/petja-me#readme",
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "pug-cli": "^1.0.0-alpha6",
-    "stylus": "^0.54.5"
+  "dependencies": {
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
   },
-  "private": true,
-  "dependencies": {}
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "parcel-bundler": "^1.11.0"
+  },
+  "private": true
 }
