@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rm public/ -rf && cp src/ public/ -R && pug src --out public -w & stylus -w -c src -o public & babel src/ -d public/ -w",
+    "build": "rm -rf public/ && cp -R src/ public/ && pug src --out public -w & stylus -w -c src -o public & babel src/ -d public/ -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "git+https://github.com/petja/petja-me.git",
