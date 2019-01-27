@@ -17,7 +17,9 @@
   "homepage": "https://github.com/petja/petja-me#readme",
   "dependencies": {
     "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react-anime": "^2.2.0",
+    "react-dom": "^16.7.0",
+    "react-jss": "^8.6.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
