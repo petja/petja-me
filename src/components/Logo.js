@@ -3,23 +3,48 @@ import React from 'react'
 import withStyles from 'react-jss'
 import Anime from 'react-anime'
 
-class Logo extends React.PureComponent {
+import Logo1 from '../img/logo1.svg'
+import Logo2 from '../img/logo2.svg'
+import Face from '../img/face.png'
+
+class Logo extends React.Component {
   render = () => (
-    <Anime scale={[0, 1]} delay={500}>
-      <img
-        src="https://petja.me/img/petjalogo.svg"
-        alt="Logo"
-        className={this.props.classes.root}
-      />
-    </Anime>
+    <div className={this.props.classes.root}>
+      <div>
+        <Anime translateX={['-100%', '-3em']}>
+          <img src={Logo1} alt="Petja" className={this.props.classes.part} />
+        </Anime>
+        <br />
+        <Anime translateX={['100%', '3em']}>
+          <img src={Logo2} alt="Touru" className={this.props.classes.part} />
+        </Anime>
+      </div>
+    </div>
   )
 }
 
 const styles = {
   root: {
-    width: '100%',
-    maxWidth: '40em',
-    margin: '0 auto'
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100%'
+  },
+  foo: {
+    backgroundImage: `url("${Face}")`,
+    backgroundBlendMode: 'overlay',
+    background: '#000040',
+    display: 'inline-block',
+    height: '20em',
+    width: '20em',
+    backgroundSize: 'contain',
+    position: 'relative',
+    zIndex: 1
+  },
+  part: {
+    height: '5em',
+    zIndex: 2,
+    position: 'relative'
   }
 }
 

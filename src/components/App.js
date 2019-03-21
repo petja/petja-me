@@ -14,7 +14,9 @@ class App extends React.PureComponent {
 
 const styles = {
   root: {
-    textAlign: 'center'
+    textAlign: 'center',
+    overflow: 'hidden',
+    height: '100%'
   }
 }
 
