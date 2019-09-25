@@ -1,20 +1,3 @@
 {
-  "plugins": [
-    "transform-class-properties",
-    "transform-object-rest-spread",
-    "transform-regenerator",
-    "syntax-dynamic-import",
-    "transform-async-to-generator"
-  ],
-  "presets": [
-    [
-      "env",
-      {
-        "targets": {
-          "browsers": ["last 2 versions"]
-        }
-      }
-    ],
-    "react"
-  ]
+  "plugins": ["react-hot-loader/babel"]
 }
