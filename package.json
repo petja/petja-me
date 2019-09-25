@@ -5,13 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "parcel serve index.html"
+    "build": "parcel build index.html",
+    "watch": "parcel serve index.html"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "styled-components": "^4.4.0"
   },
   "devDependencies": {
     "@types/react": "^16.9.3",
@@ -19,7 +21,6 @@
     "babel-core": "^6.26.3",
     "parcel-bundler": "^1.12.3",
     "react-hot-loader": "^4.12.14",
-    "styled-components": "^4.4.0",
     "typescript": "^3.6.3"
   }
 }
