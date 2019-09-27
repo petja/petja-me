@@ -123,6 +123,17 @@ export default class Logo extends React.PureComponent {
       }
     })
 
+    document.body.animate &&
+      document.body.animate(
+        [
+          { backgroundColor: 'hsl(239, 65%, 66%)', offset: 0.0 },
+          { backgroundColor: 'hsl(239, 65%, 16%)', offset: 0.5 },
+          { backgroundColor: 'hsl(239, 65%, 66%)', offset: 0.51 },
+          { backgroundColor: 'hsl(239, 65%, 16%)', offset: 1.0 }
+        ],
+        250
+      )
+
     setTimeout(() => {
       this.setState({
         gone: true

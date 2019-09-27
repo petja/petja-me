@@ -12,7 +12,7 @@ const Root = styled.div`
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background: hsl(239, 65%, 16%) radial-gradient(hsl(239, 65%, 36%),hsl(239, 65%, 16%));
+    background: hsl(239, 65%, 16%);
     color: #fff;
     text-align: center;
     font-family: Menlo, monospace;
