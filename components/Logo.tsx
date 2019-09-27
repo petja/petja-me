@@ -72,18 +72,19 @@ const Container = styled.div`
 
 const Biography = styled.div`
   opacity: 0;
-  margin-top: 3em;
   animation: 0.5s ${subheaderAnimation};
   animation-delay: 0.5s;
   animation-fill-mode: forwards;
   width: 100%;
   max-width: 800px;
   padding: 1em;
+  max-height: 100%;
+  overflow: auto;
 `
 
 const Link = styled.a`
   color: inherit;
-  margin: 1em 0.5em 0 0.5em;
+  margin: 0 0.5em;
   display: inline-block;
 `
 
@@ -109,7 +110,8 @@ const Avatar = styled.img`
 export default class Logo extends React.PureComponent {
   state = {
     blobs: null,
-    gone: false
+    gone: false,
+    now: null
   }
 
   componentDidMount = async () => {
@@ -139,21 +141,39 @@ export default class Logo extends React.PureComponent {
         gone: true
       })
     }, 1500)
+
+    setInterval(() => {
+      this.setState({
+        now: Date.now()
+      })
+    }, 1000)
   }
 
   render = () => {
     if (this.state.gone) {
+      const formatter = new Intl.DateTimeFormat([], {
+        timeZone: 'Europe/Helsinki',
+        hour: 'numeric',
+        minute: 'numeric'
+      })
+
+      const timeInFinland = formatter.format(new Date())
+
+      const utcHours = new Date().getUTCHours()
+
+      const age = new Date().getFullYear() - 1997
+
       return (
         <Biography>
           <Avatar src={this.state.blobs.avatar} alt="Picture of me" />
           <p>
-            👋 Hey! My name is <u>Petja Touru</u> and I am software developer based in Espoo,
-            Finland. Payment systems and public transport are what I breathe.
+            👋 Hey! My name is <u>Petja Touru</u> and I am {age} years old software developer based
+            in Espoo, Finland. Payment systems and public transport are what I breathe.
           </p>
           <p>
-            I have experience from TypeScript, React, Node, Docker, GraphQL, Git and AWS. Currently
-            I'm working with these technologies at Poplatek Oy as Full Stack Software Developer.
-            You'll find me doing expirements with these on my free time too.
+            I have experience from TypeScript, React, Node, Docker, PostgreSQL, GraphQL and AWS.
+            Currently I'm working with these technologies at Poplatek Oy as Full Stack Software
+            Developer. You'll find me doing expirements with these on my free time too.
           </p>
           <p>Feel free to contact me &mdash; whether just to say hi or to ask me for a pint 🍻</p>
           <Link href="https://twitter.com/petjato">Twitter</Link>
@@ -161,6 +181,9 @@ export default class Logo extends React.PureComponent {
           <Link href="https://www.linkedin.com/in/tourupetja/">LinkedIn</Link>
           <Link href="https://t.me/petjato">Telegram</Link>
           <Link href="mailto:hello@petja.me">Email</Link>
+          {utcHours < 5 || utcHours >= 19 ? (
+            <p>😴 It's {timeInFinland} here in Finland but I try my best to reply ASAP</p>
+          ) : null}
         </Biography>
       )
     }

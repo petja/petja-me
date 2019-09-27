@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
     color: #fff;
     text-align: center;
     font-family: Menlo, monospace;
+    line-height:1.75em;
   }
 
   #root, html, body {
