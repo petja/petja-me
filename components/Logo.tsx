@@ -70,12 +70,15 @@ const Container = styled.div`
   animation-fill-mode: forwards;
 `
 
-const Subheader = styled.p`
+const Biography = styled.div`
   opacity: 0;
   margin-top: 3em;
   animation: 0.5s ${subheaderAnimation};
   animation-delay: 0.5s;
   animation-fill-mode: forwards;
+  width: 100%;
+  max-width: 800px;
+  padding: 1em;
 `
 
 const Link = styled.a`
@@ -88,20 +91,28 @@ const spinnerKeyframes = keyframes`
 0%{
   transform:rotate(0deg);
 }
-0%{
-  transform:rotate(-360deg);
+100%{
+  transform:rotate(360deg);
 }`
 
 const Spinner = styled.span`
   animation: 0.5s ${spinnerKeyframes} infinite linear;
 `
 
+const Avatar = styled.img`
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.2);
+`
+
 export default class Logo extends React.PureComponent {
   state = {
-    blobs: null
+    blobs: null,
+    gone: false
   }
 
-  componentDidMount = async () =>
+  componentDidMount = async () => {
     this.setState({
       blobs: {
         logo1: await this.imageToBlobUrl(Logo1Src),
@@ -109,25 +120,51 @@ export default class Logo extends React.PureComponent {
       }
     })
 
-  /*     <Subheader>
-    Software developer based in Espoo, Finland
-    <br />
-    <Link href="https://twitter.com/petjato">Twitter</Link>
-    <Link href="https://github.com/petja">Github</Link>
-    <Link href="https://www.linkedin.com/in/tourupetja/">LinkedIn</Link>
-    <Link href="https://t.me/petjato">Telegram</Link>
-    <Link href="mailto:hello@petja.me">Email</Link>
-  </Subheader> */
+    setTimeout(() => {
+      this.setState({
+        gone: true
+      })
+    }, 1500)
+  }
 
-  render = () =>
-    this.state.blobs ? (
-      <Container>
-        <Logo1 src={this.state.blobs.logo1} />
-        <Logo2 src={this.state.blobs.logo2} />
-      </Container>
-    ) : (
-      <Spinner>⏳</Spinner>
-    )
+  render = () => {
+    if (this.state.gone) {
+      return (
+        <Biography>
+          <Avatar
+            src="https://gravatar.com/avatar/3fe5cfc5d9eaeea3d15c8b5605c93514?s=300"
+            alt="Picture of me"
+          />
+          <p>
+            👋 Hey! My name is <u>Petja Touru</u> and I am software developer based in Espoo,
+            Finland. Payment systems and public transport are what I breathe.
+          </p>
+          <p>
+            I have experience from TypeScript, React, Node, Docker, GraphQL, Git and AWS. Currently
+            I'm working with these technologies at Poplatek Oy as Full Stack Software Developer.
+            You'll find me doing expirements with these on my free time too.
+          </p>
+          <p>Feel free to contact me &mdash; whether just to say hi or to ask me for a pint 🍻</p>
+          <Link href="https://twitter.com/petjato">Twitter</Link>
+          <Link href="https://github.com/petja">Github</Link>
+          <Link href="https://www.linkedin.com/in/tourupetja/">LinkedIn</Link>
+          <Link href="https://t.me/petjato">Telegram</Link>
+          <Link href="mailto:hello@petja.me">Email</Link>
+        </Biography>
+      )
+    }
+
+    if (this.state.blobs) {
+      return (
+        <Container>
+          <Logo1 src={this.state.blobs.logo1} />
+          <Logo2 src={this.state.blobs.logo2} />
+        </Container>
+      )
+    }
+
+    return <Spinner>⏳</Spinner>
+  }
 
   private imageToBlobUrl = (src: string) =>
     fetch(src)

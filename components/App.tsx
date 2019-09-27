@@ -2,7 +2,6 @@ import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 
 import Logo from './Logo'
-import Scanlines from './Scanlines'
 
 const Root = styled.div`
   align-items: center;
@@ -13,7 +12,7 @@ const Root = styled.div`
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background: hsl(278, 65%, 16%) radial-gradient(hsl(278, 65%, 30%),hsl(278, 65%, 15%));
+    background: hsl(239, 65%, 16%) radial-gradient(hsl(239, 65%, 36%),hsl(239, 65%, 16%));
     color: #fff;
     text-align: center;
     font-family: Menlo, monospace;
@@ -31,7 +30,6 @@ const App = () => (
   <Root>
     <GlobalStyle />
     <Logo />
-    <Scanlines />
   </Root>
 )
 
