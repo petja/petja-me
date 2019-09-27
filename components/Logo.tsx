@@ -44,10 +44,13 @@ const subheaderAnimation = keyframes`
 
 const glitch = keyframes`
 0%{
-  opacity:0.8;
+  transform:scale(1);
+}
+50%{
+  transform:scale(1.2);
 }
 100%{
-  opacity:1;
+  transform:scale(0);
 }
 `
 
@@ -62,7 +65,9 @@ const Logo2 = styled(Logo)`
 `
 
 const Container = styled.div`
-  animation: 0.02s ${glitch} linear infinite alternate;
+  animation: 0.5s ${glitch};
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
 `
 
 const Subheader = styled.p`
@@ -79,6 +84,18 @@ const Link = styled.a`
   display: inline-block;
 `
 
+const spinnerKeyframes = keyframes`
+0%{
+  transform:rotate(0deg);
+}
+0%{
+  transform:rotate(-360deg);
+}`
+
+const Spinner = styled.span`
+  animation: 0.5s ${spinnerKeyframes} infinite linear;
+`
+
 export default class Logo extends React.PureComponent {
   state = {
     blobs: null
@@ -92,23 +109,24 @@ export default class Logo extends React.PureComponent {
       }
     })
 
+  /*     <Subheader>
+    Software developer based in Espoo, Finland
+    <br />
+    <Link href="https://twitter.com/petjato">Twitter</Link>
+    <Link href="https://github.com/petja">Github</Link>
+    <Link href="https://www.linkedin.com/in/tourupetja/">LinkedIn</Link>
+    <Link href="https://t.me/petjato">Telegram</Link>
+    <Link href="mailto:hello@petja.me">Email</Link>
+  </Subheader> */
+
   render = () =>
     this.state.blobs ? (
       <Container>
         <Logo1 src={this.state.blobs.logo1} />
         <Logo2 src={this.state.blobs.logo2} />
-        <Subheader>
-          Software developer based in Espoo, Finland
-          <br />
-          <Link href="https://twitter.com/petjato">Twitter</Link>
-          <Link href="https://github.com/petja">Github</Link>
-          <Link href="https://www.linkedin.com/in/tourupetja/">LinkedIn</Link>
-          <Link href="https://t.me/petjato">Telegram</Link>
-          <Link href="mailto:hello@petja.me">Email</Link>
-        </Subheader>
       </Container>
     ) : (
-      <p>⏳</p>
+      <Spinner>⏳</Spinner>
     )
 
   private imageToBlobUrl = (src: string) =>
