@@ -42,6 +42,15 @@ const subheaderAnimation = keyframes`
   }
 `
 
+const glitch = keyframes`
+0%{
+  opacity:0.8;
+}
+100%{
+  opacity:1;
+}
+`
+
 const Logo1 = styled(Logo)`
   transform: translateX(-3em);
   animation: 0.5s ${slide};
@@ -52,12 +61,22 @@ const Logo2 = styled(Logo)`
   animation: 0.5s ${slide2};
 `
 
+const Container = styled.div`
+  animation: 0.02s ${glitch} linear infinite alternate;
+`
+
 const Subheader = styled.p`
   opacity: 0;
   margin-top: 3em;
   animation: 0.5s ${subheaderAnimation};
   animation-delay: 0.5s;
   animation-fill-mode: forwards;
+`
+
+const Link = styled.a`
+  color: inherit;
+  margin: 1em 0.5em 0 0.5em;
+  display: inline-block;
 `
 
 export default class Logo extends React.PureComponent {
@@ -75,15 +94,19 @@ export default class Logo extends React.PureComponent {
 
   render = () =>
     this.state.blobs ? (
-      <div>
+      <Container>
         <Logo1 src={this.state.blobs.logo1} />
         <Logo2 src={this.state.blobs.logo2} />
         <Subheader>
-          Software Developer
+          Software developer based in Espoo, Finland
           <br />
-          hello@petja.me
+          <Link href="https://twitter.com/petjato">Twitter</Link>
+          <Link href="https://github.com/petja">Github</Link>
+          <Link href="https://www.linkedin.com/in/tourupetja/">LinkedIn</Link>
+          <Link href="https://t.me/petjato">Telegram</Link>
+          <Link href="mailto:hello@petja.me">Email</Link>
         </Subheader>
-      </div>
+      </Container>
     ) : (
       <p>⏳</p>
     )
