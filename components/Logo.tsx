@@ -4,7 +4,7 @@ import styled, { keyframes } from 'styled-components'
 import Logo1Src from '../images/name1.svg'
 import Logo2Src from '../images/name2.svg'
 
-const Logo = styled.img`
+const Base = styled.img`
   height: 5em;
   max-width: 50vw;
   display: block;
@@ -54,12 +54,12 @@ const glitch = keyframes`
 }
 `
 
-const Logo1 = styled(Logo)`
+const Logo1 = styled(Base)`
   transform: translateX(-3em);
   animation: 0.5s ${slide};
 `
 
-const Logo2 = styled(Logo)`
+const Logo2 = styled(Base)`
   transform: translateX(3em);
   animation: 0.5s ${slide2};
 `
@@ -116,7 +116,10 @@ export default class Logo extends React.PureComponent {
     this.setState({
       blobs: {
         logo1: await this.imageToBlobUrl(Logo1Src),
-        logo2: await this.imageToBlobUrl(Logo2Src)
+        logo2: await this.imageToBlobUrl(Logo2Src),
+        avatar: await this.imageToBlobUrl(
+          'https://gravatar.com/avatar/3fe5cfc5d9eaeea3d15c8b5605c93514?s=300'
+        )
       }
     })
 
@@ -131,10 +134,7 @@ export default class Logo extends React.PureComponent {
     if (this.state.gone) {
       return (
         <Biography>
-          <Avatar
-            src="https://gravatar.com/avatar/3fe5cfc5d9eaeea3d15c8b5605c93514?s=300"
-            alt="Picture of me"
-          />
+          <Avatar src={this.state.blobs.avatar} alt="Picture of me" />
           <p>
             👋 Hey! My name is <u>Petja Touru</u> and I am software developer based in Espoo,
             Finland. Payment systems and public transport are what I breathe.
