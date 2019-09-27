@@ -60,14 +60,36 @@ const Subheader = styled.p`
   animation-fill-mode: forwards;
 `
 
-export default () => (
-  <div>
-    <Logo1 src={Logo1Src} />
-    <Logo2 src={Logo2Src} />
-    <Subheader>
-      Software Developer
-      <br />
-      hello@petja.me
-    </Subheader>
-  </div>
-)
+export default class Logo extends React.PureComponent {
+  state = {
+    blobs: null
+  }
+
+  componentDidMount = async () =>
+    this.setState({
+      blobs: {
+        logo1: await this.imageToBlobUrl(Logo1Src),
+        logo2: await this.imageToBlobUrl(Logo2Src)
+      }
+    })
+
+  render = () =>
+    this.state.blobs ? (
+      <div>
+        <Logo1 src={this.state.blobs.logo1} />
+        <Logo2 src={this.state.blobs.logo2} />
+        <Subheader>
+          Software Developer
+          <br />
+          hello@petja.me
+        </Subheader>
+      </div>
+    ) : (
+      <p>⏳</p>
+    )
+
+  private imageToBlobUrl = (src: string) =>
+    fetch(src)
+      .then(resp => resp.blob())
+      .then(URL.createObjectURL)
+}
