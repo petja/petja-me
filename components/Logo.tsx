@@ -84,8 +84,6 @@ const Biography = styled.div`
 
 const Link = styled.a`
   color: inherit;
-  margin: 0 0.5em;
-  display: inline-block;
 `
 
 const spinnerKeyframes = keyframes`
@@ -107,6 +105,12 @@ const Avatar = styled.img`
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.2);
 `
 
+const SocialMediaLinks = styled.div`
+  & ${Link} {
+    margin: 1em 0.5em;
+  }
+`
+
 export default class Logo extends React.PureComponent {
   state = {
     blobs: null,
@@ -125,16 +129,9 @@ export default class Logo extends React.PureComponent {
       }
     })
 
-    document.body.animate &&
-      document.body.animate(
-        [
-          { backgroundColor: 'hsl(239, 65%, 66%)', offset: 0.0 },
-          { backgroundColor: 'hsl(239, 65%, 16%)', offset: 0.5 },
-          { backgroundColor: 'hsl(239, 65%, 66%)', offset: 0.51 },
-          { backgroundColor: 'hsl(239, 65%, 16%)', offset: 1.0 }
-        ],
-        250
-      )
+    setTimeout(() => {
+      this.runLightning()
+    }, 250)
 
     setTimeout(() => {
       this.setState({
@@ -147,6 +144,21 @@ export default class Logo extends React.PureComponent {
         now: Date.now()
       })
     }, 1000)
+  }
+
+  private runLightning = () => {
+    document.body.animate &&
+      document.body.animate(
+        [
+          { backgroundColor: 'hsl(239, 65%, 66%)', offset: 0.0 },
+          { backgroundColor: 'hsl(239, 65%, 16%)', offset: 0.5 },
+          { backgroundColor: 'hsl(239, 65%, 66%)', offset: 0.51 },
+          { backgroundColor: 'hsl(239, 65%, 16%)', offset: 1.0 }
+        ],
+        250
+      )
+
+    // setTimeout(() => this.runLightning(), Math.random() * 30000)
   }
 
   render = () => {
@@ -167,23 +179,34 @@ export default class Logo extends React.PureComponent {
         <Biography>
           <Avatar src={this.state.blobs.avatar} alt="Picture of me" />
           <p>
-            👋 Hey! My name is <u>Petja Touru</u> and I am {age} years old software developer based
-            in Espoo, Finland. Payment systems and public transport are what I breathe.
+            👋 Hey! My name is Petja Touru and I am {age} years old software developer based in
+            Espoo, Finland. Payment systems and public transport are what I breathe.
           </p>
           <p>
-            I have experience from TypeScript, React, Node, Docker, PostgreSQL, GraphQL and AWS.
-            Currently I'm working with these technologies at Poplatek Oy as Full Stack Software
-            Developer. You'll find me doing expirements with these on my free time too.
+            Currently I'm working with TypeScript, React, Node, Docker, PostgreSQL, GraphQL and AWS
+            while my stay as a Full Stack Software Developer at{' '}
+            <Link href="https://www.poplatek.fi/">Poplatek Oy</Link>. Since primary school I've
+            worked with dozens of other technologies too. I also have previous experience from
+            another software company and freelanced several projects too. On my free time I'm also
+            gathering new skills and working on my personal projects &mdash; some of them being open
+            source.
           </p>
           <p>Feel free to contact me &mdash; whether just to say hi or to ask me for a pint 🍻</p>
-          <Link href="https://twitter.com/petjato">Twitter</Link>
-          <Link href="https://github.com/petja">Github</Link>
-          <Link href="https://www.linkedin.com/in/tourupetja/">LinkedIn</Link>
-          <Link href="https://t.me/petjato">Telegram</Link>
-          <Link href="mailto:hello@petja.me">Email</Link>
+          <SocialMediaLinks>
+            <Link href="https://twitter.com/petjato">Twitter</Link>
+            <Link href="https://github.com/petja">Github</Link>
+            <Link href="https://www.linkedin.com/in/tourupetja/">LinkedIn</Link>
+            <Link href="https://t.me/petjato">Telegram</Link>
+            <Link href="mailto:hello@petja.me">Email</Link>
+          </SocialMediaLinks>
           {utcHours < 5 || utcHours >= 19 ? (
             <p>😴 It's {timeInFinland} here in Finland but I try my best to reply ASAP</p>
-          ) : null}
+          ) : (
+            <p>
+              In need of my GPG public key? Yank one from{' '}
+              <Link href="https://keys.openpgp.org/search?q=hello%40petja.me">here</Link>.
+            </p>
+          )}
         </Biography>
       )
     }
