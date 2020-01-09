@@ -12,10 +12,10 @@ const Root = styled.div`
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background: hsl(239, 65%, 16%);
+    background: #131324;
     color: #fff;
-    text-align: center;
-    font-family: Menlo, monospace;
+    text-align: justify;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     line-height:1.75em;
   }
 

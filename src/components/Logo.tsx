@@ -99,23 +99,30 @@ const Spinner = styled.span`
 `
 
 const Avatar = styled.img`
-  height: 150px;
-  width: 150px;
+  height: 80px;
+  width: 80px;
   border-radius: 50%;
-  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 0, 0, 0.2);
+  margin-right: 1em;
 `
 
 const SocialMediaLinks = styled.div`
   & ${Link} {
     margin: 1em 0.5em;
+    &:first-child {
+      margin-left: 0;
+    }
   }
+`
+
+const Splitted = styled.div`
+  display: flex;
 `
 
 export default class Logo extends React.PureComponent {
   state = {
     blobs: null,
     gone: false,
-    now: null
+    now: null,
   }
 
   componentDidMount = async () => {
@@ -124,9 +131,9 @@ export default class Logo extends React.PureComponent {
         logo1: await this.imageToBlobUrl(Logo1Src),
         logo2: await this.imageToBlobUrl(Logo2Src),
         avatar: await this.imageToBlobUrl(
-          'https://gravatar.com/avatar/3fe5cfc5d9eaeea3d15c8b5605c93514?s=300'
-        )
-      }
+          'https://gravatar.com/avatar/3fe5cfc5d9eaeea3d15c8b5605c93514?s=160'
+        ),
+      },
     })
 
     setTimeout(() => {
@@ -135,13 +142,13 @@ export default class Logo extends React.PureComponent {
 
     setTimeout(() => {
       this.setState({
-        gone: true
+        gone: true,
       })
     }, 1500)
 
     setInterval(() => {
       this.setState({
-        now: Date.now()
+        now: Date.now(),
       })
     }, 1000)
   }
@@ -153,7 +160,7 @@ export default class Logo extends React.PureComponent {
           { backgroundColor: 'hsl(239, 65%, 66%)', offset: 0.0 },
           { backgroundColor: 'hsl(239, 65%, 16%)', offset: 0.5 },
           { backgroundColor: 'hsl(239, 65%, 66%)', offset: 0.51 },
-          { backgroundColor: 'hsl(239, 65%, 16%)', offset: 1.0 }
+          { backgroundColor: 'hsl(239, 65%, 16%)', offset: 1.0 },
         ],
         250
       )
@@ -166,7 +173,7 @@ export default class Logo extends React.PureComponent {
       const formatter = new Intl.DateTimeFormat([], {
         timeZone: 'Europe/Helsinki',
         hour: 'numeric',
-        minute: 'numeric'
+        minute: 'numeric',
       })
 
       const timeInFinland = formatter.format(new Date())
@@ -177,11 +184,14 @@ export default class Logo extends React.PureComponent {
 
       return (
         <Biography>
-          <Avatar src={this.state.blobs.avatar} alt="Picture of me" />
-          <p>
-            👋 Hey! My name is Petja Touru and I am {age} years old software developer based in
-            Espoo, Finland. Payment systems and public transport are what I breathe.
-          </p>
+          <Splitted>
+            <Avatar src={this.state.blobs.avatar} alt="Picture of me" />
+            <p>
+              <strong>👋 Hey! My name is Petja!</strong>
+              <br />I am {age} years old software developer based in{' '}
+              <Link href="https://maps.google.com/?q=Espoo, Finland">Espoo, Finland</Link>.
+            </p>
+          </Splitted>
           <p>
             Currently I'm working with TypeScript, React, Node, Docker, PostgreSQL, GraphQL and AWS
             while my stay as a Full Stack Software Developer at{' '}
