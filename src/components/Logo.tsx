@@ -77,7 +77,8 @@ const Biography = styled.div`
   animation-fill-mode: forwards;
   width: 100%;
   max-width: 800px;
-  padding: 1em;
+  padding: 4em;
+  box-sizing: border-box;
   max-height: 100%;
   overflow: auto;
 `
@@ -168,6 +169,15 @@ export default class Logo extends React.PureComponent {
     // setTimeout(() => this.runLightning(), Math.random() * 30000)
   }
 
+  private prettierConfig = {
+    arrowParens: 'avoid',
+    printWidth: 100,
+    semi: false,
+    singleQuote: true,
+    tabWidth: 2,
+    trailingComma: 'es5',
+  }
+
   render = () => {
     if (this.state.gone) {
       const formatter = new Intl.DateTimeFormat([], {
@@ -187,20 +197,88 @@ export default class Logo extends React.PureComponent {
           <Splitted>
             <Avatar src={this.state.blobs.avatar} alt="Picture of me" />
             <p>
-              <strong>👋 Hey! My name is Petja!</strong>
+              <strong>Hey! My name is Petja 👋</strong>
               <br />I am {age} years old software developer based in{' '}
-              <Link href="https://maps.google.com/?q=Espoo, Finland">Espoo, Finland</Link>.
+              <Link href="https://maps.google.com/?q=Espoo, Finland">Espoo, Finland</Link> 🇫🇮
             </p>
           </Splitted>
           <p>
-            Currently I'm working with TypeScript, React, Node, Docker, PostgreSQL, GraphQL and AWS
-            while my stay as a Full Stack Software Developer at{' '}
-            <Link href="https://www.poplatek.fi/">Poplatek Oy</Link>. Since primary school I've
-            worked with dozens of other technologies too. I also have previous experience from
-            another software company and freelanced several projects too. On my free time I'm also
-            gathering new skills and working on my personal projects &mdash; some of them being open
-            source.
+            Currently I'm Full Stack Software Developer at{' '}
+            <Link href="https://www.poplatek.fi/">Poplatek&nbsp;Oy</Link> (acquired by
+            Nets&nbsp;A/S). I have previous experience from another software company and but have
+            also freelanced several projects. I studied Bachelor of Information Technology at HAMK
+            University of Applied Sciences and graduated at December 2019.
           </p>
+          <p>
+            On my free time I'm also gathering new skills and working on my personal projects
+            &mdash; some of them being open source. I'm also public transport aficionado and
+            interested in timetables, routes, ticketing systems, vehicles, infrastructure and
+            history of all these. When I'm not experimenting with code or railfanning, you can find
+            me walking around town, enjoying museums and culture or maybe telling jokes.
+          </p>
+
+          <h2>Uses</h2>
+          <h3>Development</h3>
+          <p>
+            👨‍💻 My preferred technologies are TypeScript, React, Node, Docker, PostgreSQL, GraphQL
+            and AWS. I also have experience from dozen other technologies out there. For example
+            this site is deployed with Netlify.
+          </p>
+          <p>
+            My preferred coding style expressed as <code>.prettierrc</code> is:
+          </p>
+          <pre>{JSON.stringify(this.prettierConfig, null, 2)}</pre>
+
+          <h3>Software</h3>
+          <p>
+            ⌨️ For coding I mostly use Visual Studio Code with{' '}
+            <Link href="https://marketplace.visualstudio.com/items?itemName=Nimda.deepdark-material">
+              Deepdark Material Theme
+            </Link>{' '}
+            and several other extensions. I don't fear using Vim either <kbd>:wq</kbd>
+          </p>
+          <p>
+            🦊 Firefox is my browser of choice. With it I'm using several great extensions such as{' '}
+            <Link href="https://addons.mozilla.org/en-US/firefox/addon/ublock-origin">
+              uBlock Origin
+            </Link>
+            ,{' '}
+            <Link href="https://addons.mozilla.org/en-US/firefox/addon/sponsorblock">
+              SponsorBlock
+            </Link>
+            ,{' '}
+            <Link href="https://addons.mozilla.org/en-US/firefox/addon/i-dont-care-about-cookies">
+              I don't care about cookies
+            </Link>
+            ,{' '}
+            <Link href="https://addons.mozilla.org/en-US/firefox/addon/simple-translate">
+              Simple Translate
+            </Link>
+            , <Link href="https://addons.mozilla.org/en-US/firefox/addon/json-lite">JSON Lite</Link>{' '}
+            and{' '}
+            <Link href="https://addons.mozilla.org/en-US/firefox/addon/react-devtools">
+              React Developer Tools
+            </Link>
+            .
+          </p>
+          <p>
+            🔑 For passwords and secrets I'm using{' '}
+            <Link href="https://1password.eu">1Password</Link> 💰
+          </p>
+          <p>
+            ✉️ My primary communication channel is Telegram. If you wan't to catch up,{' '}
+            <Link href="https://t.me/petjato">here's a link</Link>.
+          </p>
+
+          <h3>Hardware</h3>
+          <p>
+            I use 🍎 Macbook Pro 16" (Late 2019) as my main computer. Custom-built 🎮 gaming PC with
+            GeForce RTX 2080 Ti, 16 gigs of RAM and Intel i5-9600K 3.7 GHz fulfills my gaming needs.
+            With Alienware AW3418DW display I can enjoy games in 120 FPS and ultra-wide 🖥
+          </p>
+          <p>📱 I have iPhone XS Max 256 Gb</p>
+
+          <h2>Contact</h2>
           <p>Feel free to contact me &mdash; whether just to say hi or to ask me for a pint 🍻</p>
           <SocialMediaLinks>
             <Link href="https://twitter.com/petjato">Twitter</Link>
@@ -208,15 +286,11 @@ export default class Logo extends React.PureComponent {
             <Link href="https://www.linkedin.com/in/tourupetja/">LinkedIn</Link>
             <Link href="https://t.me/petjato">Telegram</Link>
             <Link href="mailto:hello@petja.me">Email</Link>
+            <Link href="https://keys.openpgp.org/search?q=hello%40petja.me">PGP</Link>
           </SocialMediaLinks>
           {utcHours < 5 || utcHours >= 19 ? (
             <p>😴 It's {timeInFinland} here in Finland but I try my best to reply ASAP</p>
-          ) : (
-            <p>
-              In need of my GPG public key? Yank one from{' '}
-              <Link href="https://keys.openpgp.org/search?q=hello%40petja.me">here</Link>.
-            </p>
-          )}
+          ) : null}
         </Biography>
       )
     }
