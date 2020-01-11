@@ -7,7 +7,6 @@ const Root = styled.div`
   align-items: center;
   justify-content: center;
   height: 100%;
-  display: flex;
 `
 
 const GlobalStyle = createGlobalStyle`
@@ -23,7 +22,6 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden;
   }
 `
 

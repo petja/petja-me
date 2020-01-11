@@ -42,7 +42,7 @@ const subheaderAnimation = keyframes`
   }
 `
 
-const glitch = keyframes`
+const logoScaleKeyframes = keyframes`
 0%{
   transform:scale(1);
 }
@@ -65,9 +65,15 @@ const Logo2 = styled(Base)`
 `
 
 const Container = styled.div`
-  animation: 0.5s ${glitch};
+  animation: 0.5s ${logoScaleKeyframes};
   animation-delay: 1s;
   animation-fill-mode: forwards;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
 `
 
 const Biography = styled.div`
@@ -79,8 +85,7 @@ const Biography = styled.div`
   max-width: 800px;
   padding: 4em;
   box-sizing: border-box;
-  max-height: 100%;
-  overflow: auto;
+  margin: 0 auto;
 `
 
 const Link = styled.a`
@@ -298,8 +303,10 @@ export default class Logo extends React.PureComponent {
     if (this.state.blobs) {
       return (
         <Container>
-          <Logo1 src={this.state.blobs.logo1} />
-          <Logo2 src={this.state.blobs.logo2} />
+          <div>
+            <Logo1 src={this.state.blobs.logo1} />
+            <Logo2 src={this.state.blobs.logo2} />
+          </div>
         </Container>
       )
     }
