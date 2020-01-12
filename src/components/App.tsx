@@ -11,7 +11,7 @@ const Root = styled.div`
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background: #131324;
+    background: hsl(240, 30.9%, 10%);
     color: #fff;
     text-align: justify;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";

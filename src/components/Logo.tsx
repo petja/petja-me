@@ -1,6 +1,8 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 
+import Code from './Code'
+
 import Logo1Src from '../images/name1.svg'
 import Logo2Src from '../images/name2.svg'
 
@@ -195,7 +197,8 @@ export default class Logo extends React.PureComponent {
 
       const utcHours = new Date().getUTCHours()
 
-      const age = new Date().getFullYear() - 1997
+      const date = new Date()
+      const age = date.getFullYear() - 1997 + (date.getMonth() * 30 + date.getDate() < 23 ? -1 : 0)
 
       return (
         <Biography>
@@ -210,8 +213,8 @@ export default class Logo extends React.PureComponent {
           <p>
             Currently I'm Full Stack Software Developer at{' '}
             <Link href="https://www.poplatek.fi/">Poplatek&nbsp;Oy</Link> (acquired by
-            Nets&nbsp;A/S). I have previous experience from another software company and but have
-            also freelanced several projects. I studied Bachelor of Information Technology at HAMK
+            Nets&nbsp;A/S). I have previous experience from another software company but have also
+            freelanced several projects. I studied Bachelor of Information Technology at HAMK
             University of Applied Sciences and graduated at December 2019.
           </p>
           <p>
@@ -232,7 +235,7 @@ export default class Logo extends React.PureComponent {
           <p>
             My preferred coding style expressed as <code>.prettierrc</code> is:
           </p>
-          <pre>{JSON.stringify(this.prettierConfig, null, 2)}</pre>
+          <Code>{JSON.stringify(this.prettierConfig, null, 2)}</Code>
 
           <h3>Software</h3>
           <p>
@@ -271,8 +274,8 @@ export default class Logo extends React.PureComponent {
             <Link href="https://1password.eu">1Password</Link> 💰
           </p>
           <p>
-            ✉️ My primary communication channel is Telegram. If you wan't to catch up,{' '}
-            <Link href="https://t.me/petjato">here's a link</Link>.
+            ✉️ My primary communication channel is Telegram. If you want to catch me up, have a look
+            at the bottom of the page.
           </p>
 
           <h3>Hardware</h3>
@@ -289,6 +292,7 @@ export default class Logo extends React.PureComponent {
             <Link href="https://twitter.com/petjato">Twitter</Link>
             <Link href="https://github.com/petja">Github</Link>
             <Link href="https://www.linkedin.com/in/tourupetja/">LinkedIn</Link>
+            <Link href="https://dev.to/petja">Dev</Link>
             <Link href="https://t.me/petjato">Telegram</Link>
             <Link href="mailto:hello@petja.me">Email</Link>
             <Link href="https://keys.openpgp.org/search?q=hello%40petja.me">PGP</Link>
