@@ -4,11 +4,39 @@
     <title>Petja Touru</title>
     <meta charset="UTF-8" />
     <meta content="width=device-width,initial-scale=1" name="viewport" />
-
-    <script src="index.tsx"></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
 
-  <body>
-    <div id="root"></div>
+  <body
+    class="bg-indigo-900 text-center text-white px-3 flex flex-col justify-center h-screen"
+  >
+    <h1>
+      <img src="./images/logo.svg" class="my-6 h-32 inline" alt="Petja Touru" />
+    </h1>
+
+    <p class="my-6">I'm Full Stack Software Developer from Finland</p>
+    <div class="my-6 flex flex-col max-w-xl m-auto">
+      <a
+        href="mailto:hello@petja.me"
+        class="m-2 bg-indigo-700 hover:bg-indigo-600 py-3 px-6 rounded"
+        tabindex="1"
+      >
+        Send email
+      </a>
+      <a
+        href="https://linkedin.com/in/tourupetja"
+        class="m-2 bg-purple-700 hover:bg-purple-600 py-3 px-6 rounded"
+        tabindex="2"
+      >
+        Connect with me on LinkedIn
+      </a>
+      <a
+        href="https://calendly.com/petja"
+        class="m-2 bg-pink-700 hover:bg-pink-600 py-3 px-6 rounded"
+        tabindex="3"
+      >
+        Schedule a meeting
+      </a>
+    </div>
   </body>
 </html>
