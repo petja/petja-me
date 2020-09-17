@@ -11,10 +11,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "tailwindcss": "^1.5.0"
+    "tailwindcss": "^1.8.10"
   },
   "devDependencies": {
     "cssnano": "^4.1.10",
-    "parcel-bundler": "^1.12.3"
+    "parcel-bundler": "^1.12.4"
   }
 }
