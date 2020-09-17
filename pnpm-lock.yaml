@@ -1,4 +1,5 @@
 dependencies:
+  '@tailwindcss/ui': 0.6.2_tailwindcss@1.8.10
   tailwindcss: 1.8.10
 devDependencies:
   cssnano: 4.1.10
@@ -1056,6 +1057,37 @@ packages:
       node: '>= 6.0.0'
     resolution:
       integrity: sha512-USSjRAAQYsZFlv43FUPdD+jEGML5/8oLF0rUzPQTtK4q9kvaXr49F5ZplyLz5lox78cLZ0TxN2bIDQ1xhOkulQ==
+  /@tailwindcss/custom-forms/0.2.1_tailwindcss@1.8.10:
+    dependencies:
+      lodash: 4.17.20
+      mini-svg-data-uri: 1.2.3
+      tailwindcss: 1.8.10
+      traverse: 0.6.6
+    dev: false
+    peerDependencies:
+      tailwindcss: ^1.0
+    resolution:
+      integrity: sha512-XdP5XY6kxo3x5o50mWUyoYWxOPV16baagLoZ5uM41gh6IhXzhz/vJYzqrTb/lN58maGIKlpkxgVsQUNSsbAS3Q==
+  /@tailwindcss/typography/0.2.0_tailwindcss@1.8.10:
+    dependencies:
+      tailwindcss: 1.8.10
+    dev: false
+    peerDependencies:
+      tailwindcss: ^1.5.0
+    resolution:
+      integrity: sha512-aPgMH+CjQiScLZculoDNOQUrrK2ktkbl3D6uCLYp1jgYRlNDrMONu9nMu8LfwAeetYNpVNeIGx7WzHSu0kvECg==
+  /@tailwindcss/ui/0.6.2_tailwindcss@1.8.10:
+    dependencies:
+      '@tailwindcss/custom-forms': 0.2.1_tailwindcss@1.8.10
+      '@tailwindcss/typography': 0.2.0_tailwindcss@1.8.10
+      hex-rgb: 4.2.0
+      postcss-selector-parser: 6.0.2
+      tailwindcss: 1.8.10
+    dev: false
+    peerDependencies:
+      tailwindcss: ^1.8.3
+    resolution:
+      integrity: sha512-i0sWpAgnF4VitNqaf4JVDuiaQ3MmREwn7gmNYR6lvX29avYLLNOHf0DgzhVEfwfB+CJ6WjZvPoJuDYExZgWlwQ==
   /@types/color-name/1.1.1:
     dev: false
     resolution:
@@ -2764,6 +2796,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
+  /hex-rgb/4.2.0:
+    dev: false
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-I7DkKeQ2kR2uyqgbxPgNgClH/rfs1ioKZhZW8VTIAirsxCR5EyhYeywgZbhMScgUbKCkgo6bb6JwA0CLTn9beA==
   /hmac-drbg/1.0.1:
     dependencies:
       hash.js: 1.1.7
@@ -3468,6 +3506,10 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-jf84uxzwiuiIVKiOLpfYk7N46TSy8ubTonmneY9vrpHNAnp0QBt2BxWV9dO3/j+BoVAb+a5G6YDPW3M5HOdMWQ==
+  /mini-svg-data-uri/1.2.3:
+    dev: false
+    resolution:
+      integrity: sha512-zd6KCAyXgmq6FV1mR10oKXYtvmA9vRoB6xPSTUJTbFApCtkefDnYueVR1gkof3KcdLZo1Y8mjF2DFmQMIxsHNQ==
   /minimalistic-assert/1.0.1:
     dev: true
     resolution:
@@ -5243,6 +5285,10 @@ packages:
     dev: true
     resolution:
       integrity: sha1-qLE/1r/SSJUZZ0zN5VujaTtwbQk=
+  /traverse/0.6.6:
+    dev: false
+    resolution:
+      integrity: sha1-y99WD9e5r2MlAv7UD5GMFX6pcTc=
   /tty-browserify/0.0.0:
     dev: true
     resolution:
@@ -5527,6 +5573,7 @@ packages:
     resolution:
       integrity: sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==
 specifiers:
+  '@tailwindcss/ui': ^0.6.2
   cssnano: ^4.1.10
   parcel-bundler: ^1.12.4
   tailwindcss: ^1.8.10

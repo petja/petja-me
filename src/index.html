@@ -1,44 +1,58 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
     <title>Petja Touru</title>
-    <meta charset="UTF-8" />
-    <meta content="width=device-width,initial-scale=1" name="viewport" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width,initial-scale=1" name="viewport"/>
+    <link rel="stylesheet" href="style.css"/>
+</head>
 
-  <body
-    class="bg-indigo-900 text-center text-white px-3 flex flex-col justify-center h-screen"
-  >
-    <h1>
-      <img src="./images/logo.svg" class="my-6 h-32 inline" alt="Petja Touru" />
-    </h1>
+<body>
+<div class="flex-1"></div>
+<div class="max-w-xl mx-auto">
+    <div class="m-auto mx-6">
+        <h1>
+            <img src="./images/logo.svg" class="my-6 h-24 sm:h-32 inline" alt="Petja Touru"/>
+        </h1>
 
-    <p class="my-6">
-      👨‍💻 Software developer, tech geek and rail transport aficionado 🚅😍
-    </p>
-    <div class="my-6 flex flex-col max-w-xl m-auto">
-      <a
-        href="mailto:hello@petja.me"
-        class="m-2 bg-indigo-700 hover:bg-indigo-600 py-3 px-6 rounded"
-        tabindex="1"
-      >
-        Send email
-      </a>
-      <a
-        href="https://linkedin.com/in/tourupetja"
-        class="m-2 bg-purple-700 hover:bg-purple-600 py-3 px-6 rounded"
-        tabindex="2"
-      >
-        Connect with me on LinkedIn
-      </a>
-      <a
-        href="https://calendly.com/petja"
-        class="m-2 bg-pink-700 hover:bg-pink-600 py-3 px-6 rounded"
-        tabindex="3"
-      >
-        Schedule a meeting
-      </a>
+        <p class="my-6 text-lg font-medium">
+            I'm software developer from Espoo, Finland
+        </p>
+
+        <p class="my-6">
+            Currently I'm developing and maintaining payment backend for the apps of Helsinki Regional Transport (HSL).
+            Backend handles wide range of payment methods and is processing hundreds of thousands transactions a day.
+            Service is built with Node.js and utilizes several AWS products.
+        </p>
+        <p class="my-6">
+            Public transport and especially rail transport is my point of interest.
+        </p>
+
+        <div class="my-6 flex flex-col max-w-xl m-auto">
+            <a
+                    href="mailto:hello@petja.me"
+                    class="m-2 shadow bg-gradient-to-b from-indigo-500 to-indigo-600 hover:from-indigo-400 hover:to-indigo-500 py-3 px-6 rounded"
+                    tabindex="1"
+            >
+                Send email
+            </a>
+            <a
+                    href="https://linkedin.com/in/tourupetja"
+                    class="m-2 shadow bg-gradient-to-b from-purple-500 to-purple-600 hover:from-purple-400 hover:to-purple-500 py-3 px-6 rounded"
+                    tabindex="2"
+            >
+                Connect with me on LinkedIn
+            </a>
+            <a
+                    href="https://github.com/petja"
+                    class="m-2 shadow bg-gradient-to-b from-pink-500 to-pink-600 hover:from-pink-400 hover:to-pink-500 py-3 px-6 rounded"
+                    tabindex="3"
+            >
+                View my Github
+            </a>
+        </div>
     </div>
-  </body>
+</div>
+<div class="flex-1"></div>
+</body>
 </html>
