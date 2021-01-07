@@ -3,6 +3,5 @@
 @tailwind utilities;
 
 body {
-    background-image: url("./images/bg.png");
-    @apply bg-blue-900 text-center text-white px-3 flex flex-col h-screen;
+  @apply bg-orchid-900 text-center text-white px-3 flex flex-col h-screen;
 }

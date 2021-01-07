@@ -1,57 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Petja Touru</title>
-    <meta charset="UTF-8"/>
-    <meta content="width=device-width,initial-scale=1" name="viewport"/>
-    <link rel="stylesheet" href="style.css"/>
+  <title>Petja Touru</title>
+  <meta charset="UTF-8" />
+  <meta content="width=device-width,initial-scale=1" name="viewport" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 <div class="flex-1"></div>
-<div class="max-w-xl mx-auto">
-    <div class="m-auto mx-6">
-        <h1>
-            <img src="./images/logo.svg" class="my-6 h-24 sm:h-32 inline" alt="Petja Touru"/>
-        </h1>
+<div class="max-w-2xl mx-auto">
+  <div class="m-auto mx-6">
+    <div class="space-y-8">
+      <h1>
+        <img src="./images/logo.svg" class="my-6 h-24 sm:h-32 inline" alt="Petja Touru" />
+      </h1>
 
-        <p class="my-6 text-lg font-medium">
-            I'm software developer from Espoo, Finland
-        </p>
+      <p>
+        I'm eager to work with Node.js, GraphQL, TailwindCSS and React.
+      </p>
 
-        <p class="my-6">
-            Currently I'm developing and maintaining payment backend for the apps of Helsinki Regional Transport (HSL).
-            Backend handles wide range of payment methods and is processing hundreds of thousands transactions a day.
-            Service is built with Node.js and utilizes several AWS products.
-        </p>
-        <p class="my-6">
-            Public transport and especially rail transport is my point of interest.
-        </p>
+      <h2 class="font-medium text-xl">Software consultancy services</h2>
 
-        <div class="my-6 flex flex-col max-w-xl m-auto">
-            <a
-                    href="mailto:hello@petja.me"
-                    class="m-2 shadow bg-gradient-to-b from-indigo-500 to-indigo-600 hover:from-indigo-400 hover:to-indigo-500 py-3 px-6 rounded"
-                    tabindex="1"
-            >
-                Send email
-            </a>
-            <a
-                    href="https://linkedin.com/in/tourupetja"
-                    class="m-2 shadow bg-gradient-to-b from-purple-500 to-purple-600 hover:from-purple-400 hover:to-purple-500 py-3 px-6 rounded"
-                    tabindex="2"
-            >
-                Connect with me on LinkedIn
-            </a>
-            <a
-                    href="https://github.com/petja"
-                    class="m-2 shadow bg-gradient-to-b from-pink-500 to-pink-600 hover:from-pink-400 hover:to-pink-500 py-3 px-6 rounded"
-                    tabindex="3"
-            >
-                View my Github
-            </a>
+      <div class="grid grid-cols-3 items-center">
+        <div class="space-y-2">
+          <span>
+            <span class="text-2xl font-medium">5&nbsp;950</span>
+            <span class="text-orchid-400">EUR</span>
+          </span>
+          <span class="block">20 workdays</span>
         </div>
+        <div class="space-y-2">
+          <span>
+            <span class="text-2xl font-medium">495</span>
+            <span class="text-orchid-400">EUR</span>
+          </span>
+          <span class="block">a workday</span>
+        </div>
+        <div class="space-y-2">
+          <span>
+            <span class="text-2xl font-medium">120</span>
+            <span class="text-orchid-400">EUR</span>
+          </span>
+          <span class="block">an hour</span>
+        </div>
+      </div>
     </div>
+
+    <div class="my-6 flex flex-col m-auto">
+      <a
+        href="mailto:hello@petja.me"
+        class="m-2 shadow bg-gradient-to-b from-blush-500 to-blush-600 hover:from-blush-400 hover:to-blush-500 py-3 px-6 rounded"
+        tabindex="1"
+      >
+        Book me
+      </a>
+    </div>
+
+    <p class="text-sm text-orchid-400">
+      All prices excluding VAT. Payment with credit card or SEPA Direct.
+    </p>
+  </div>
 </div>
 <div class="flex-1"></div>
 </body>
