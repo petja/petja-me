@@ -1,0 +1,14 @@
+{
+  "slices": {
+    "Tech": {
+      "default": {
+        "primary": {},
+        "items": {}
+      }
+    }
+  },
+  "_cts": {
+    "project": {},
+    "technology": {}
+  }
+}
