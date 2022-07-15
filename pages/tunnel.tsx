@@ -39,7 +39,7 @@ const skillsUpcoming = [
     name: 'Back carving',
   },
   {
-    name: 'Vertical big-way',
+    name: 'Layouts',
   },
   {
     name: 'Dynamic flying',
@@ -79,7 +79,7 @@ export default function Tunnel() {
         {latestVideo ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="flex flex-col gap-4">
-              <h1 className="font-bold text-lg text-white">Latest video</h1>
+              <h1 className="font-bold text-lg title">Latest video</h1>
               <span>
                 Video recorded at
                 <br />
@@ -114,27 +114,25 @@ export default function Tunnel() {
           <p>Loading video ...</p>
         )}
 
-        <h1 className="font-bold text-lg text-white">Stats</h1>
+        <h1 className="font-bold text-lg title">Stats</h1>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 text-slate-300">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 text-slate-600 dark:text-slate-300">
           <div>
             Currently I have had around{' '}
-            <span className="text-xl font-bold block text-white">
-              {hours} hours
-            </span>{' '}
+            <span className="text-xl font-bold block title">{hours} hours</span>{' '}
             of time in a tunnel
           </div>
 
           <div>
             This have cost me around{' '}
-            <span className="text-xl font-bold block text-white">
+            <span className="text-xl font-bold block title">
               {((hours * costPerHour) / 1_000).toFixed(1)} k€
             </span>
             at the approx. cost of {costPerHour} € an hour, incl. coaching
           </div>
         </div>
 
-        <h1 className="font-bold text-lg text-white">Learned so far</h1>
+        <h1 className="font-bold text-lg title">Learned so far</h1>
 
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
           {skills.map((skill) => (
@@ -142,7 +140,7 @@ export default function Tunnel() {
           ))}
         </ul>
 
-        <h1 className="font-bold text-lg text-white">Coming up</h1>
+        <h1 className="font-bold text-lg title">Coming up</h1>
 
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
           {skillsUpcoming.map((skill) => (
@@ -151,7 +149,7 @@ export default function Tunnel() {
           <li className="text-slate-500 italic">This ain&apos;t the end :)</li>
         </ul>
 
-        <div className="flex gap-4 border-y border-y-slate-700 py-4">
+        <div className="flex gap-4 border-y border-y-slate-300 dark:border-y-slate-700 py-4">
           <Image
             src="/social/instagram.svg"
             height="24"

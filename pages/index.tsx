@@ -1,45 +1,45 @@
-import Image from "next/image";
-import Head from "next/head";
+import Image from 'next/image'
+import Head from 'next/head'
 
-import { Topbar } from "../components/Topbar";
-import { Container } from "../components/Container";
-import Link from "next/link";
+import { Topbar } from '../components/Topbar'
+import { Container } from '../components/Container'
+import Link from 'next/link'
 
 interface Tech {
-  id: string;
-  name: string;
+  id: string
+  name: string
 }
 
 const techs: Tech[] = [
   {
-    id: "typescript",
-    name: "TypeScript",
+    id: 'typescript',
+    name: 'TypeScript',
   },
   {
-    id: "react",
-    name: "React",
+    id: 'react',
+    name: 'React',
   },
   {
-    id: "tailwind",
-    name: "TailwindCSS",
+    id: 'tailwind',
+    name: 'TailwindCSS',
   },
   {
-    id: "graphql",
-    name: "GraphQL",
+    id: 'graphql',
+    name: 'GraphQL',
   },
   {
-    id: "next",
-    name: "Next",
+    id: 'next',
+    name: 'Next',
   },
   {
-    id: "node",
-    name: "Node",
+    id: 'node',
+    name: 'Node',
   },
   {
-    id: "prisma",
-    name: "Prisma",
+    id: 'prisma',
+    name: 'Prisma',
   },
-];
+]
 
 export default function Home() {
   return (
@@ -56,7 +56,7 @@ export default function Home() {
         <Container className="animate-fadeInUp">
           <main className="pb-10 lg:pb-20 space-y-20">
             <section className="space-y-4">
-              <h1 className="font-bold text-lg text-white">Shortly about me</h1>
+              <h1 className="font-bold text-lg title">Shortly about me</h1>
               <p>
                 I&apos;m a software engineer from Helsinki, Finland, with 4+
                 years of professional software development experience and 15+
@@ -70,14 +70,14 @@ export default function Home() {
                 <li>ÄrräTreeni Oy</li>
               </ul>
               <p>
-                In my free time, I jump out of airplanes, fly in{" "}
+                In my free time, I jump out of airplanes, fly in{' '}
                 <Link href="/tunnel">a wind tunnel</Link>, play video games, and
                 work on my personal software projects.
               </p>
             </section>
 
             <section className="space-y-4">
-              <h1 className="font-bold text-lg text-white">
+              <h1 className="font-bold text-lg title">
                 Tech I like to work with
               </h1>
               <p>
@@ -102,9 +102,9 @@ export default function Home() {
             </section>
 
             <section className="space-y-4">
-              <h1 className="font-bold text-lg text-white">Contact me</h1>
+              <h1 className="font-bold text-lg title">Contact me</h1>
               <p>
-                If you&apos;d like to have me on your development team, please{" "}
+                If you&apos;d like to have me on your development team, please{' '}
                 <a
                   href="https://compile.fi/en/contact-us/"
                   rel="noreferrer nofollow"
@@ -117,8 +117,8 @@ export default function Home() {
               </p>
               <p>
                 In non-formal matters, you can contact me on social media. You
-                can find me from <a href="https://t.me/petjato">Telegram</a>,{" "}
-                <a href="https://twitter.com/petjato">Twitter</a> and{" "}
+                can find me from <a href="https://t.me/petjato">Telegram</a>,{' '}
+                <a href="https://twitter.com/petjato">Twitter</a> and{' '}
                 <a href="https://instagram.com/petjato">Instagram</a> for
                 example.
               </p>
@@ -128,5 +128,5 @@ export default function Home() {
         </Container>
       </div>
     </>
-  );
+  )
 }
