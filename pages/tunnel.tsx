@@ -46,8 +46,7 @@ const skillsUpcoming = [
   },
 ]
 
-const hours = 15
-const costPerHour = 590
+const hours = 16
 
 export default function Tunnel() {
   const { data, error } = useSWR('/api/fooni_video', fetch)
@@ -73,13 +72,13 @@ export default function Tunnel() {
       </Head>
       <Topbar
         heading="Tunnel flying"
-        subtitle="Last updated on July 10, 2022"
+        subtitle="Last updated on July 15, 2022"
       />
       <Container className="space-y-8 pb-20 animate-fadeInUp">
         {latestVideo ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="flex flex-col gap-4">
-              <h1 className="font-bold text-lg title">Latest video</h1>
+              <h1 className="font-bold text-lg title">📽 Latest video</h1>
               <span>
                 Video recorded at
                 <br />
@@ -116,19 +115,17 @@ export default function Tunnel() {
 
         <h1 className="font-bold text-lg title">Stats</h1>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 text-slate-600 dark:text-slate-300">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-600 dark:text-slate-300">
           <div>
-            Currently I have had around{' '}
+            ⏱ Currently I have had around{' '}
             <span className="text-xl font-bold block title">{hours} hours</span>{' '}
             of time in a tunnel
           </div>
 
           <div>
-            This have cost me around{' '}
-            <span className="text-xl font-bold block title">
-              {((hours * costPerHour) / 1_000).toFixed(1)} k€
-            </span>
-            at the approx. cost of {costPerHour} € an hour, incl. coaching
+            🥇 Top Coach
+            <span className="text-xl font-bold block title">@aarohilli</span>
+            with &asymp;3 hours of coaching
           </div>
         </div>
 
