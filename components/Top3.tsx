@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { formatMinutes } from '../utils'
+
 interface Props {
   items: Item[]
 }
@@ -7,13 +9,6 @@ interface Props {
 interface Item {
   name: string
   minutes: number
-}
-
-function formatMinutes(minutes: number) {
-  const hours = Math.floor(minutes / 60)
-  const modulo = Math.floor(minutes % 60)
-
-  return `${hours} h ${modulo} min`
 }
 
 const rankEmojis = ['🥇', '🥈', '🥉']
@@ -29,15 +24,20 @@ export function Top3(props: Props) {
   const firstItem = props.items[0]
   const lastItem = props.items.slice(-1)[0]
 
+  const canvasHeight = (barHeight + gutter) * props.items.length - gutter
+
   return (
-    <svg width="300" height="200" viewBox="0 0 300 200">
+    <svg
+      width={canvasWidth}
+      height={canvasHeight}
+      viewBox={`0 0 ${canvasWidth} ${canvasHeight}`}
+    >
       <g className="fill-blue-200 dark:fill-slate-600">
         {props.items.map((item, i) => {
           const width =
             ((item.minutes - lastItem.minutes) /
               (firstItem.minutes - lastItem.minutes)) *
-              canvasWidth -
-            barMinWidth
+            canvasWidth
 
           return (
             <>

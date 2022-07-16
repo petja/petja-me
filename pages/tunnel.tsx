@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 
@@ -66,6 +66,8 @@ export default function Tunnel() {
   }>('https://fooni-scraper.petja.workers.dev/', (url: string) =>
     fetch(url).then((resp) => resp.json())
   )
+
+  const [showMoreCoaches, setShowMoreCoaches] = useState(false)
 
   const { latestVideo } = data ?? {}
 
@@ -136,8 +138,25 @@ export default function Tunnel() {
           </div>
 
           <div className="gap-4 flex flex-col">
-            <h1 className="font-bold text-lg title">🏆 Top 3 Coaches</h1>
-            {data && <Top3 items={data.reservationStats.coaches.slice(0, 3)} />}
+            <h1 className="font-bold text-lg title">🏆 Top Coaches</h1>
+            {data && (
+              <Top3
+                items={data.reservationStats.coaches.slice(
+                  0,
+                  showMoreCoaches ? 6 : 3
+                )}
+              />
+            )}
+            {!showMoreCoaches && (
+              <div>
+                <button
+                  onClick={() => setShowMoreCoaches(true)}
+                  className="text-blue-500"
+                >
+                  Show more &rarr;
+                </button>
+              </div>
+            )}
           </div>
         </div>
 
