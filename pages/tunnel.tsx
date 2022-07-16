@@ -49,7 +49,11 @@ const skillsUpcoming = [
 const hours = 16
 
 export default function Tunnel() {
-  const { data, error } = useSWR('/api/fooni_video', fetch)
+  const { data, error } = useSWR(
+    'https://fooni-scraper.petja.workers.dev/',
+    fetch
+  )
+
   const [latestVideo, setLatestVideo] = useState<{
     title: string
     date: string
