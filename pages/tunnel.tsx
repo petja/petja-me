@@ -6,6 +6,7 @@ import useSWR from 'swr'
 
 import { Topbar } from '../components/Topbar'
 import { Container } from '../components/Container'
+import { Top3 } from '../components/Top3'
 
 const skills = [
   {
@@ -46,13 +47,6 @@ const skillsUpcoming = [
   },
 ]
 
-function formatMinutes(minutes: number) {
-  const hours = Math.floor(minutes / 60)
-  const modulo = Math.floor(minutes % 60)
-
-  return `${hours} h ${modulo} min`
-}
-
 export default function Tunnel() {
   const { data, error } = useSWR<{
     latestVideo: {
@@ -63,6 +57,11 @@ export default function Tunnel() {
     }
     reservationStats: {
       totalTime: number
+      coaches: {
+        id: string
+        name: string
+        minutes: number
+      }[]
     }
   }>('https://fooni-scraper.petja.workers.dev/', (url: string) =>
     fetch(url).then((resp) => resp.json())
@@ -129,106 +128,16 @@ export default function Tunnel() {
             <h1 className="font-bold text-lg title">⏱ Total Flight Time</h1>
             <div>
               <span className="text-4xl font-bold block title">
-                {data
-                  ? Math.round((data.reservationStats.totalTime + 240) / 60)
-                  : '–'}{' '}
+                {data ? Math.round(data.reservationStats.totalTime / 60) : '–'}{' '}
                 hours
               </span>{' '}
-              Approximate
+              <span className="text-slate-500">(approximate)</span>
             </div>
           </div>
 
           <div className="gap-4 flex flex-col">
             <h1 className="font-bold text-lg title">🏆 Top 3 Coaches</h1>
-            <svg width="300" height="200" viewBox="0 0 300 200">
-              <g className="fill-blue-200 dark:fill-slate-600">
-                <rect x="0" y="0" width="50" height="50" />
-                <rect x="0" y="75" width="50" height="50" />
-                <rect x="0" y="150" width="50" height="50" />
-              </g>
-              <g className="fill-blue-200 dark:fill-slate-600">
-                <rect x="50" y="0" width="250" height="50" />
-                <rect x="50" y="75" width="98" height="50" />
-              </g>
-              <g>
-                <text
-                  x="10"
-                  y="25"
-                  alignmentBaseline="middle"
-                  textAnchor="start"
-                >
-                  🥇
-                </text>
-                <text
-                  x="10"
-                  y="100"
-                  alignmentBaseline="middle"
-                  textAnchor="start"
-                >
-                  🥈
-                </text>
-                <text
-                  x="10"
-                  y="175"
-                  alignmentBaseline="middle"
-                  textAnchor="start"
-                >
-                  🥉
-                </text>
-              </g>
-              <g className="fill-current dark:fill-white">
-                <text
-                  x="290"
-                  y="10"
-                  alignmentBaseline="hanging"
-                  textAnchor="end"
-                >
-                  @aarohilli
-                </text>
-                <text
-                  x="290"
-                  y="85"
-                  alignmentBaseline="hanging"
-                  textAnchor="end"
-                >
-                  @lassilainen
-                </text>
-                <text
-                  x="290"
-                  y="160"
-                  alignmentBaseline="hanging"
-                  textAnchor="end"
-                >
-                  @jerebyman
-                </text>
-              </g>
-              <g className="fill-slate-600 dark:fill-slate-300 text-sm">
-                <text
-                  x="290"
-                  y="40"
-                  alignmentBaseline="baseline"
-                  textAnchor="end"
-                >
-                  {formatMinutes(167)}
-                </text>
-                <text
-                  x="290"
-                  y="115"
-                  alignmentBaseline="baseline"
-                  textAnchor="end"
-                >
-                  {formatMinutes(124)}
-                </text>
-                <text
-                  x="290"
-                  y="190"
-                  alignmentBaseline="baseline"
-                  textAnchor="end"
-                >
-                  {formatMinutes(95)}
-                </text>
-              </g>
-            </svg>
+            {data && <Top3 items={data.reservationStats.coaches.slice(0, 3)} />}
           </div>
         </div>
 
