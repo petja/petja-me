@@ -79,26 +79,34 @@ export default function Tunnel() {
         subtitle="Last updated on July 15, 2022"
       />
       <Container className="space-y-8 pb-20 animate-fadeInUp">
-        {latestVideo ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="flex flex-col gap-4">
-              <h1 className="font-bold text-lg title">📽 Latest video</h1>
-              <span>
-                Video recorded at
-                <br />
-                {new Date(latestVideo.date).toLocaleString(['en'], {
-                  month: 'long',
-                  day: 'numeric',
-                  year: 'numeric',
-                  hour: 'numeric',
-                  minute: 'numeric',
-                  hour12: false,
-                })}
-              </span>
-              <a href={latestVideo.downloadUrl} target="_newtab">
-                View video &rarr;
-              </a>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="flex flex-col gap-4">
+            <h1 className="font-bold text-lg title">📽 Latest video</h1>
+            {latestVideo ? (
+              <>
+                <span>
+                  Video recorded at
+                  <br />
+                  {new Date(latestVideo.date).toLocaleString(['en'], {
+                    month: 'long',
+                    day: 'numeric',
+                    year: 'numeric',
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    hour12: false,
+                  })}
+                </span>
+                <a href={latestVideo.downloadUrl} target="_newtab">
+                  View video &rarr;
+                </a>
+              </>
+            ) : error ? (
+              <p>Could not retrieve latest video 😞</p>
+            ) : (
+              <p>Loading video ...</p>
+            )}
+          </div>
+          {latestVideo ? (
             <div>
               <a href={latestVideo.downloadUrl} target="_newtab">
                 <Image
@@ -110,12 +118,10 @@ export default function Tunnel() {
                 />
               </a>
             </div>
-          </div>
-        ) : error ? (
-          <p>Could not retrieve latest video 😞</p>
-        ) : (
-          <p>Loading video ...</p>
-        )}
+          ) : (
+            <div className="inline-block bg-slate-500 w-[300px] h-[168px] rounded-xl"></div>
+          )}
+        </div>
 
         <h1 className="font-bold text-lg title">Stats</h1>
 
