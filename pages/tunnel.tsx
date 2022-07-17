@@ -79,7 +79,7 @@ export default function Tunnel() {
       </Head>
       <Topbar
         heading="Tunnel Flying"
-        subtitle="Last updated on July 16, 2022"
+        subtitle="Data is automatically updated on daily basis"
       />
       <Container className="space-y-8 pb-20 animate-fadeInUp">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-2">
@@ -144,7 +144,7 @@ export default function Tunnel() {
               <Top3
                 items={data.reservationStats.coaches.slice(
                   0,
-                  showMoreCoaches ? 6 : 3
+                  showMoreCoaches ? 7 : 3
                 )}
               />
             )}
