@@ -73,29 +73,33 @@ export function Top3(props: Props) {
           </text>
         ))}
       </g>
-      <g className="fill-current dark:fill-white">
-        {props.items.map((item, i) => {
-          const text = (
-            <text
-              x={canvasWidth - barPadding}
-              y={barPadding + (barHeight + gutter) * i}
-              alignmentBaseline="hanging"
-              textAnchor="end"
-              key={i}
+      {props.items.map((item, i) => {
+        const text = (
+          <text
+            x={canvasWidth - barPadding}
+            y={barPadding + (barHeight + gutter) * i}
+            alignmentBaseline="hanging"
+            textAnchor="end"
+            className="fill-current dark:fill-white"
+            key={i}
+          >
+            {item.instagram ? `@${item.instagram}` : item.name}
+          </text>
+        )
+
+        if (item.instagram) {
+          return (
+            <a
+              href={`https://instagram.com/${item.instagram}`}
+              target="_newtab"
             >
-              {item.name}
-            </text>
+              {text}
+            </a>
           )
+        }
 
-          if (item.instagram) {
-            return (
-              <a href={`https://instagram.com/${item.instagram}`}>{text}</a>
-            )
-          }
-
-          return text
-        })}
-      </g>
+        return text
+      })}
       <g className="fill-slate-600 dark:fill-slate-300 text-sm">
         {props.items.map((item, i) => {
           return (
