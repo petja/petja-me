@@ -49,6 +49,7 @@ export function Top3(props: Props) {
                 y={(barHeight + gutter) * i}
                 width={width}
                 height={barHeight}
+                className="transition-all"
               />
               <rect
                 x="0"
