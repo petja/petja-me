@@ -9,6 +9,7 @@ interface Props {
 interface Item {
   name: string
   minutes: number
+  instagram?: string
 }
 
 const rankEmojis = ['🥇', '🥈', '🥉']
@@ -73,7 +74,7 @@ export function Top3(props: Props) {
       </g>
       <g className="fill-current dark:fill-white">
         {props.items.map((item, i) => {
-          return (
+          const text = (
             <text
               x={canvasWidth - 10}
               y={10 + (barHeight + gutter) * i}
@@ -84,6 +85,14 @@ export function Top3(props: Props) {
               {item.name}
             </text>
           )
+
+          if (item.instagram) {
+            return (
+              <a href={`https://instagram.com/${item.instagram}`}>{text}</a>
+            )
+          }
+
+          return text
         })}
       </g>
       <g className="fill-slate-600 dark:fill-slate-300 text-sm">

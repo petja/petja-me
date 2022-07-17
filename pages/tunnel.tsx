@@ -61,6 +61,7 @@ export default function Tunnel() {
         id: string
         name: string
         minutes: number
+        instagram?: string
       }[]
     }
   }>('https://fooni-scraper.petja.workers.dev/', (url: string) =>
