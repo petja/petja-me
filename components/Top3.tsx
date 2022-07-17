@@ -16,8 +16,9 @@ const rankEmojis = ['🥇', '🥈', '🥉']
 
 const canvasWidth = 300
 
-const barHeight = 50
-const gutter = 25
+const barPadding = 10
+const barHeight = 48
+const gutter = 24
 
 const barMinWidth = barHeight
 
@@ -62,7 +63,7 @@ export function Top3(props: Props) {
       <g>
         {rankEmojis.map((emoji, i) => (
           <text
-            x="10"
+            x={barPadding}
             y={barHeight / 2 + (barHeight + gutter) * i}
             alignmentBaseline="middle"
             textAnchor="start"
@@ -76,8 +77,8 @@ export function Top3(props: Props) {
         {props.items.map((item, i) => {
           const text = (
             <text
-              x={canvasWidth - 10}
-              y={10 + (barHeight + gutter) * i}
+              x={canvasWidth - barPadding}
+              y={barPadding + (barHeight + gutter) * i}
               alignmentBaseline="hanging"
               textAnchor="end"
               key={i}
@@ -100,7 +101,7 @@ export function Top3(props: Props) {
           return (
             <text
               x="290"
-              y={barHeight - 10 + (barHeight + gutter) * i}
+              y={barHeight - barPadding + (barHeight + gutter) * i}
               alignmentBaseline="baseline"
               textAnchor="end"
               key={i}
