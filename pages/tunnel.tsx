@@ -72,6 +72,14 @@ export default function Tunnel() {
 
   const { latestVideo } = data ?? {}
 
+  let formattedHours = '–'
+
+  if (data) {
+    const fullHours = Math.floor(data.reservationStats.totalTime / 60)
+    const modulo = data.reservationStats.totalTime % 60
+    formattedHours = `${fullHours}${modulo >= 30 ? '½' : ''}`
+  }
+
   return (
     <>
       <Head>
@@ -131,8 +139,7 @@ export default function Tunnel() {
             <h1 className="font-bold text-lg title">⏱ Total Flight Time</h1>
             <div>
               <span className="text-4xl font-bold block title">
-                {data ? Math.round(data.reservationStats.totalTime / 60) : '–'}{' '}
-                hours
+                {formattedHours} hours
               </span>{' '}
               <span className="text-slate-500">(approximate)</span>
             </div>
