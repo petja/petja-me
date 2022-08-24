@@ -39,23 +39,18 @@ export function Top3(props: Props) {
           const width =
             ((item.minutes - lastItem.minutes) /
               (firstItem.minutes - lastItem.minutes)) *
-            canvasWidth
+              (canvasWidth - barMinWidth) +
+            barMinWidth
 
           return (
             <>
               <rect
                 key={i}
-                x={barMinWidth}
+                x="0"
                 y={(barHeight + gutter) * i}
                 width={width}
                 height={barHeight}
                 className="transition-all"
-              />
-              <rect
-                x="0"
-                y={(barHeight + gutter) * i}
-                width={barMinWidth}
-                height={barHeight}
               />
             </>
           )

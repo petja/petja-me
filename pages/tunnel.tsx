@@ -151,7 +151,7 @@ export default function Tunnel() {
               <Top3
                 items={data.reservationStats.coaches.slice(
                   0,
-                  showMoreCoaches ? 7 : 3
+                  showMoreCoaches ? 8 : 4
                 )}
               />
             )}
