@@ -21,7 +21,7 @@ const techs: Tech[] = [
   },
   {
     id: 'tailwind',
-    name: 'TailwindCSS',
+    name: 'Tailwind',
   },
   {
     id: 'graphql',
@@ -45,30 +45,23 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Petja Touru - Senior Software Engineer</title>
+        <title>Petja Touru - Senior Software Developer</title>
       </Head>
       <div className="space-y-4">
         <Topbar
           heading="Petja Touru"
-          subtitle="Senior Software Engineer"
+          subtitle="Senior Software Developer"
           avatar
         />
         <Container className="animate-fadeInUp">
           <main className="pb-10 lg:pb-20 space-y-20">
             <section className="space-y-4">
-              <h1 className="font-bold text-lg title">Shortly about me</h1>
+              <h1 className="font-bold text-xl title">Shortly About Me</h1>
               <p>
-                I&apos;m a software engineer from Helsinki, Finland, with 4+
-                years of professional software development experience and 15+
-                years as a hobby. My expertise is T-shaped, longest side
-                describing my clout on the backend and two shorter sides
-                frontend and DevOps. I have worked on several projects and
-                clients including but not limited to &hellip;
+                I&apos;m a full-stack software developer from Helsinki, Finland,
+                with 4+ years of professional software development experience
+                and 15+ years as a hobby.
               </p>
-              <ul className="list-disc ml-8">
-                <li>Helsinki Regional Transport (HSL)</li>
-                <li>ÄrräTreeni Oy</li>
-              </ul>
               <p>
                 In my free time, I jump out of airplanes, fly in{' '}
                 <Link href="/tunnel">a wind tunnel</Link>, play video games, and
@@ -77,52 +70,49 @@ export default function Home() {
             </section>
 
             <section className="space-y-4">
-              <h1 className="font-bold text-lg title">
-                Tech I like to work with
-              </h1>
+              <h1 className="font-bold text-xl title">Clients</h1>
               <p>
-                I always pick technologies case-by-case basis, but these are
-                what I find most intriguing to use
+                I have worked for several clients. Here&apos;s few to mention
+                &hellip;
               </p>
-              <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 py-4">
-                {techs.map((tech) => (
-                  <li key={tech.id} className="gap-4 flex items-center">
-                    <Image
-                      aria-hidden
-                      src={`/tech/${tech.id}.svg`}
-                      alt={tech.name}
-                      height={24}
-                      width={24}
-                    />
-                    <span>{tech.name}</span>
-                  </li>
-                ))}
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 py-4 text-lg">
+                <li>✅ Nets Group</li>
+                <li>✅ Helsinki Regional Transport (HSL)</li>
+                <li>✅ ÄrräTreeni Oy</li>
+                <li>✅ A-Insinöörit Oy</li>
               </ul>
-              <p>In fact, many of these technologies back this website too!</p>
             </section>
 
             <section className="space-y-4">
-              <h1 className="font-bold text-lg title">Contact me</h1>
+              <h1 className="font-bold text-xl title">Tech Stack</h1>
               <p>
-                If you&apos;d like to have me on your development team, please{' '}
-                <a
-                  href="https://compile.fi/en/contact-us/"
-                  rel="noreferrer nofollow"
-                  target="_newtab"
-                >
-                  request a quote from Compile Oy
-                </a>
-                . They are providing consultants, including me, for client
-                projects.
+                I pick technologies case-by-case basis, but here is few
+                technologies I like &hellip;
               </p>
+              <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-4 text-lg">
+                {techs.map((tech) => (
+                  <li key={tech.id}>✅ {tech.name}</li>
+                ))}
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h1 className="font-bold text-xl title">Contact Me</h1>
+              <div className="bg-slate-200 dark:bg-slate-950 px-4 py-2 rounded-xl flex gap-4 items-center">
+                <div className="text-xl">🔴</div>
+                <div>
+                  I&apos;m currently not available for new projects nor looking
+                  for a job
+                </div>
+              </div>
               <p>
-                In non-formal matters, you can contact me on social media. You
-                can find me from <a href="https://t.me/petjato">Telegram</a>,{' '}
-                <a href="https://twitter.com/petjato">Twitter</a> and{' '}
-                <a href="https://instagram.com/petjato">Instagram</a> for
-                example.
+                In non-work related matters, you can contact me on social media
+                <div className="flex gap-4">
+                  <a href="https://twitter.com/petjato">Twitter</a>
+                  <a href="https://instagram.com/petjato">Instagram</a>
+                  <a href="https://t.me/petjato">Telegram</a>
+                </div>
               </p>
-              <p>I prefer to not use email for your first contact.</p>
             </section>
           </main>
         </Container>
