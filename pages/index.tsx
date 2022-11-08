@@ -1,9 +1,9 @@
-import Image from 'next/image'
 import Head from 'next/head'
+import Link from 'next/link'
 
 import { Topbar } from '../components/Topbar'
 import { Container } from '../components/Container'
-import Link from 'next/link'
+import { Title } from '../components/Title'
 
 interface Tech {
   id: string
@@ -56,7 +56,7 @@ export default function Home() {
         <Container className="animate-fadeInUp">
           <main className="pb-10 lg:pb-20 space-y-20">
             <section className="space-y-4">
-              <h1 className="font-bold text-xl title">Shortly About Me</h1>
+              <Title>Shortly About Me</Title>
               <p>
                 I&apos;m a full-stack software developer from Helsinki, Finland,
                 with 4+ years of professional software development experience
@@ -70,7 +70,7 @@ export default function Home() {
             </section>
 
             <section className="space-y-4">
-              <h1 className="font-bold text-xl title">Clients</h1>
+              <Title>Clients</Title>
               <p>
                 I have worked for several clients. Here&apos;s few to mention
                 &hellip;
@@ -84,7 +84,7 @@ export default function Home() {
             </section>
 
             <section className="space-y-4">
-              <h1 className="font-bold text-xl title">Tech Stack</h1>
+              <Title>Tech Stack</Title>
               <p>
                 I pick technologies case-by-case basis, but here is few
                 technologies I like &hellip;
@@ -97,7 +97,7 @@ export default function Home() {
             </section>
 
             <section className="space-y-4">
-              <h1 className="font-bold text-xl title">Contact Me</h1>
+              <Title>Contact Me</Title>
               <div className="bg-slate-200 dark:bg-slate-950 px-4 py-2 rounded-xl flex gap-4 items-center">
                 <div className="text-xl">🔴</div>
                 <div>

@@ -4,8 +4,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
 
-html,body {
-  @apply h-full
+html {
+  font-size: 18px;
 }
 
 body {
@@ -18,8 +18,4 @@ a {
 
 mark {
   @apply bg-yellow-700 text-current
-}
-
-.title {
-  @apply text-slate-800 dark:text-white
 }

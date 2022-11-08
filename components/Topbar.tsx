@@ -26,16 +26,13 @@ export const Topbar = (props: Props) => {
   return (
     <div className="pb-10 lg:pb-20 max-w-3xl mx-auto">
       <div className="mb-10 lg:mb-20 mt-4 px-4">
-        {/*<Link href="/">
-        <a className="text-current font-bold">Petja Touru</a>
-</Link>*/}
         {links.map((link) => (
           <Link href={link.url} key={link.text}>
             <a
               className={clsx(
                 'text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 px-4 py-2 rounded-lg',
                 {
-                  'font-bold text-slate-700 dark:text-slate-200':
+                  'font-bold text-slate-700 dark:text-white':
                     router.pathname === link.url,
                 }
               )}
@@ -50,7 +47,11 @@ export const Topbar = (props: Props) => {
           <span className="text-4xl font-bold tracking-widest">
             {props.heading}
           </span>
-          {props.subtitle && <span>{props.subtitle}</span>}
+          {props.subtitle && (
+            <span className="text-slate-900 dark:text-slate-400">
+              {props.subtitle}
+            </span>
+          )}
         </div>
         {props.avatar && (
           <div>

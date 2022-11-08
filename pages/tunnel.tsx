@@ -136,7 +136,7 @@ export default function Tunnel() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-2">
           <div className="gap-4 flex flex-col">
-            <h1 className="font-bold text-lg title">⏱ Total Flight Time</h1>
+            <h1 className="font-bold text-lg title">⏱️ Total Flight Time</h1>
             <div>
               <span className="text-4xl font-bold block title">
                 {formattedHours} hours
