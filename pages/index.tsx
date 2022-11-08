@@ -41,6 +41,14 @@ const techs: Tech[] = [
   },
 ]
 
+const clients = [
+  { id: 'nets', name: 'Nets Group' },
+  { id: 'hsl', name: 'Helsinki Regional Transport (HSL)' },
+  { id: 'arratreeni', name: 'ÄrräTreeni' },
+  { id: 'ains', name: 'A-Insinöörit' },
+  { id: 'lmj', name: 'TVV lippu- ja maksujärjestelmä' },
+]
+
 export default function Home() {
   return (
     <>
@@ -76,10 +84,9 @@ export default function Home() {
                 &hellip;
               </p>
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 py-4 text-lg">
-                <li>✅ Nets Group</li>
-                <li>✅ Helsinki Regional Transport (HSL)</li>
-                <li>✅ ÄrräTreeni Oy</li>
-                <li>✅ A-Insinöörit Oy</li>
+                {clients.map((client) => (
+                  <li key={client.id}>✅ {client.name}</li>
+                ))}
               </ul>
             </section>
 
