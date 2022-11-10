@@ -13,7 +13,7 @@ html,body {
 }
 
 body {
-  @apply tracking-wider bg-slate-100 text-slate-800 dark:bg-slate-900 dark:text-white leading-8 bg-cover bg-center bg-blend-soft-light bg-fixed;
+  @apply tracking-wider bg-slate-100 text-slate-800 dark:bg-slate-900 dark:text-white leading-8 bg-cover bg-center bg-blend-color-burn dark:bg-blend-soft-light bg-fixed;
   background-image: url("/background.jpg");
 }
 
