@@ -8,8 +8,13 @@ html {
   font-size: 18px;
 }
 
+html,body {
+  @apply min-h-full;
+}
+
 body {
-  @apply tracking-wider bg-slate-100 text-slate-800 dark:bg-slate-900 dark:text-white leading-8
+  @apply tracking-wider bg-slate-100 text-slate-800 dark:bg-slate-900 dark:text-white leading-8 bg-cover bg-center bg-blend-soft-light bg-fixed;
+  background-image: url("/background.jpg");
 }
 
 a {
