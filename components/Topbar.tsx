@@ -18,6 +18,10 @@ const links = [
     text: 'Tunnel flying',
     url: '/tunnel',
   },
+  {
+    text: 'Contact',
+    url: '/contact',
+  },
 ]
 
 export const Topbar = (props: Props) => {

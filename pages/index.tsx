@@ -102,25 +102,6 @@ export default function Home() {
                 ))}
               </ul>
             </section>
-
-            <section className="space-y-4">
-              <Title>Contact Me</Title>
-              <div className="bg-slate-200 dark:bg-slate-950 px-4 py-2 rounded-xl flex gap-4 items-center">
-                <div className="text-xl">🔴</div>
-                <div>
-                  I&apos;m currently not available for new projects nor looking
-                  for a job
-                </div>
-              </div>
-              <p>
-                In non-work related matters, you can contact me on social media
-                <div className="flex gap-4">
-                  <a href="https://twitter.com/petjato">Twitter</a>
-                  <a href="https://instagram.com/petjato">Instagram</a>
-                  <a href="https://t.me/petjato">Telegram</a>
-                </div>
-              </p>
-            </section>
           </main>
         </Container>
       </div>
