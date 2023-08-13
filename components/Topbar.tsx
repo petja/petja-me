@@ -48,7 +48,7 @@ export const Topbar = (props: Props) => {
       </div>
       <div className="flex flex-col-reverse lg:flex-row gap-8 lg:items-center px-8 title animate-fadeInDown">
         <div className="flex flex-col flex-1">
-          <span className="text-4xl font-bold tracking-widest">
+          <span className="text-6xl font-bold tracking-widest font-serif">
             {props.heading}
           </span>
           {props.subtitle && (

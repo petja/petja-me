@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['var(--font-inter)'],
+        serif: ['var(--font-itc)'],
       },
       animation: {
         fadeInUp: 'fadeInUp 0.5s ease-out 1',
