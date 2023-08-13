@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
 
-import { Topbar } from '../components/Topbar'
 import { Container } from '../components/Container'
 import { Title } from '../components/Title'
 
@@ -56,11 +55,6 @@ export default function Home() {
         <title>Petja Touru - Senior Software Developer</title>
       </Head>
       <div className="space-y-4">
-        <Topbar
-          heading="Petja Touru"
-          subtitle="Senior Software Developer"
-          avatar
-        />
         <Container className="animate-fadeInUp">
           <main className="pb-10 lg:pb-20 space-y-20">
             <section className="space-y-4">

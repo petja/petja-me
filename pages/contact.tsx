@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
 
-import { Topbar } from '../components/Topbar'
 import { Container } from '../components/Container'
 
 interface Tech {
@@ -16,7 +15,6 @@ export default function ContactPage() {
         <title>Contact - Petja Touru</title>
       </Head>
       <div className="space-y-4">
-        <Topbar heading="Contact" />
         <Container className="animate-fadeInUp">
           <main className="pb-10 lg:pb-20 space-y-4">
             <div className="bg-slate-200 dark:bg-slate-950 px-4 py-2 rounded-xl flex gap-4 items-center">

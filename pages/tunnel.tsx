@@ -4,7 +4,6 @@ import Image from 'next/image'
 
 import useSWR from 'swr'
 
-import { Topbar } from '../components/Topbar'
 import { Container } from '../components/Container'
 import { Top3 } from '../components/Top3'
 
@@ -85,10 +84,7 @@ export default function Tunnel() {
       <Head>
         <title>Tunnel Flying - Petja Touru</title>
       </Head>
-      <Topbar
-        heading="Tunnel Flying"
-        subtitle="Data is automatically updated on daily basis"
-      />
+
       <Container className="space-y-8 pb-20 animate-fadeInUp">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-2">
           <div className="flex flex-col gap-4">
