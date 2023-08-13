@@ -31,18 +31,18 @@ export const Topbar = (props: Props) => {
     <div className="pb-10 lg:pb-20 max-w-3xl mx-auto">
       <div className="mb-10 lg:mb-20 mt-4 px-4">
         {links.map((link) => (
-          <Link href={link.url} key={link.text}>
-            <a
-              className={clsx(
-                'text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 px-4 py-2 rounded-lg',
-                {
-                  'font-bold text-slate-700 dark:text-white':
-                    router.pathname === link.url,
-                }
-              )}
-            >
-              {link.text}
-            </a>
+          <Link
+            href={link.url}
+            key={link.text}
+            className={clsx(
+              'text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 px-4 py-2 rounded-lg',
+              {
+                'font-bold text-slate-700 dark:text-white':
+                  router.pathname === link.url,
+              }
+            )}
+          >
+            {link.text}
           </Link>
         ))}
       </div>
