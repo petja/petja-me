@@ -45,7 +45,7 @@ const clients = [
   { id: 'hsl', name: 'Helsinki Regional Transport (HSL)' },
   { id: 'arratreeni', name: 'ÄrräTreeni' },
   { id: 'ains', name: 'A-Insinöörit' },
-  { id: 'lmj', name: 'TVV lippu- ja maksujärjestelmä' },
+  { id: 'lmj', name: 'Waltti Solutions' },
 ]
 
 export default function Home() {
@@ -54,14 +54,17 @@ export default function Home() {
       <Head>
         <title>Petja Touru - Senior Software Developer</title>
       </Head>
+
       <div className="space-y-4">
         <Container className="animate-fadeInUp">
-          <main className="pb-10 lg:pb-20 space-y-20">
+          <main className="py-20 space-y-20">
             <section className="space-y-4">
+              <h1 className="text-8xl font-serif">Senior Software Developer</h1>
+
               <Title>Shortly About Me</Title>
               <p>
                 I&apos;m a full-stack software developer from Helsinki, Finland,
-                with 4+ years of professional software development experience
+                with 5+ years of professional software development experience
                 and 15+ years as a hobby.
               </p>
               <p>
