@@ -69,8 +69,10 @@ export default function Home() {
               </p>
               <p>
                 In my free time, I jump out of airplanes, fly in{' '}
-                <Link href="/tunnel">a wind tunnel</Link>, play video games, and
-                work on my personal software projects.
+                <Link href="https://en.wikipedia.org/wiki/Vertical_wind_tunnel#Recreational_vertical_wind_tunnels">
+                  a wind tunnel
+                </Link>
+                , play video games, and work on my personal software projects.
               </p>
             </section>
 
