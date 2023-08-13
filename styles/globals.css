@@ -12,7 +12,13 @@ html,body {
 }
 
 body {
-  @apply tracking-wider bg-slate-100 text-slate-800 dark:bg-slate-900 dark:text-white leading-8;
+  @apply tracking-wider bg-white text-slate-800 leading-8;
+  background-image:
+radial-gradient(at 1% 99%, hsla(193,58%,69%,1) 0px, transparent 50%),
+radial-gradient(at 97% 24%, hsla(272,85%,68%,1) 0px, transparent 50%),
+radial-gradient(at 99% 98%, hsla(345,67%,63%,1) 0px, transparent 50%),
+radial-gradient(at 0% 1%, hsla(253,82%,65%,1) 0px, transparent 50%),
+radial-gradient(at 99% 1%, hsla(312,75%,64%,1) 0px, transparent 50%);
 }
 
 a {
