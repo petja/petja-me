@@ -63,7 +63,7 @@ export default function Home() {
               <span>
                 <h1 className="inline font-bold">Petja Touru</h1> is a …
               </span>
-              <span className="text-8xl font-serif block">
+              <span className="text-7xl lg:text-8xl font-serif block">
                 Senior Software Developer
               </span>
             </section>

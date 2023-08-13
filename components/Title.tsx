@@ -5,5 +5,5 @@ interface Props {
 }
 
 export function Title(props: Props) {
-  return <h1 {...props} className="font-bold text-2xl" />
+  return <h1 {...props} className="font-bold md:text-2xl" />
 }
