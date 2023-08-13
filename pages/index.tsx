@@ -59,8 +59,15 @@ export default function Home() {
         <Container className="animate-fadeInUp">
           <main className="py-20 space-y-20">
             <section className="space-y-4">
-              <h1 className="text-8xl font-serif">Senior Software Developer</h1>
+              <span>
+                <h1 className="inline font-bold">Petja Touru</h1> is a …
+              </span>
+              <span className="text-8xl font-serif block">
+                Senior Software Developer
+              </span>
+            </section>
 
+            <section className="space-y-4">
               <Title>Shortly About Me</Title>
               <p>
                 I&apos;m a full-stack software developer from Helsinki, Finland,
