@@ -47,6 +47,7 @@ const clients = [
   { id: 'arratreeni', name: 'ÄrräTreeni', logo: 'arratreeni.webp' },
   { id: 'ains', name: 'A-Insinöörit', logo: 'ains.png' },
   { id: 'lmj', name: 'Waltti Solutions', logo: 'waltti.svg' },
+  { id: 'fennicagaming', name: 'Fennica Gaming', logo: 'fennicagaming.png' },
 ]
 
 export default function Home() {
