@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Pixelcastle';
+    src:  url('/fonts/Pixelcastle-Regular.woff2') format('woff2'),
+    url('/fonts/Pixelcastle-Regular.woff') format('woff');
+}
+
+body, html {
+   @apply h-full flex items-center justify-center bg-black text-white
+}
